@@ -290,3 +290,8 @@ bool clsBankClient::Delete(const std::string& FileName, const std::string& delim
 		*this = _getEmptyClientObject();
 	return isClientDeleted;
 }
+//Method (10):
+std::vector <clsBankClient> clsBankClient::getClientsList(const std::string& FileName, const std::string& delimiter)
+{
+	return _LoadClientsDateFromFile(FileName, delimiter);
+}

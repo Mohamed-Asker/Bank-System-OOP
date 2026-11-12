@@ -1,51 +1,52 @@
 #include <iostream>
+#include <iomanip>
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 #include "clsBankClient.h"
 
-void PrintHeaderOfDeleteScreen()
+void PrintHeaderOfClientsList(int NumberOfClients)
 {
-	std::cout << "-------------------------------";
-	std::cout << "\n      DELETE SCREEN";
-	std::cout << "\n-------------------------------\n";
+	std::cout << "\n\n";
+	std::cout << std::setw(60) << "CLIENTS LIST " << NumberOfClients << " CLIENT" << clsUtil::FormWord(NumberOfClients, false);
+	std::cout << "\n------------------------------------------------------------------------------------------------------------------------\n";
+	std::cout << "|" << std::left << std::setw(20) << "Account Number";
+	std::cout << "|" << std::left << std::setw(15) << "Pin Code";
+	std::cout << "|" << std::left << std::setw(40) << "Client Name";
+	std::cout << "|" << std::left << std::setw(19) << "Phone";
+	std::cout << "|" << std::left << std::setw(20) << "Balance";
+	std::cout << "\n------------------------------------------------------------------------------------------------------------------------\n";
 }
 
-void DeleteScreen(std::string FileName, std::string delimiter)
+void PrintClientCard(clsBankClient& client)
 {
-	std::string accNumber;
-	PrintHeaderOfDeleteScreen();
-	do
-	{
-		accNumber = clsInputValidate::ReadString("Account Number");
-		if (clsBankClient::isClientExist(accNumber, FileName, "#//#"))
-		{
-			system("cls");
-			PrintHeaderOfDeleteScreen();
-			break;
-		}
-		std::cout << "Account number is not found, Enter another one.\n\n";
-	} while (true);
+	std::cout << "|" << std::left << std::setw(20) << client.AccountNumber();
+	std::cout << "|" << std::left << std::setw(15) << client.PinCode;
+	std::cout << "|" << std::left << std::setw(40) << client.FullName();
+	std::cout << "|" << std::left << std::setw(19) << client.Phone;
+	std::cout << "|" << std::left << std::setw(20) << client.Balance;
+}
 
-	clsBankClient client = clsBankClient::FindClinet(accNumber, FileName, "#//#");
-	client.PrintInfo();
-
-	if (clsUtil::ConfirmAction("\nAre you sure you want to delete this client"))
-	{
-		if (client.Delete(FileName, delimiter))
-			std::cout << "Client Deleted Successfully.\n";
-		else
-			std::cout << "Error Client was not deleted.\n";
-	}
+void ShowClientsList(std::string FileName, std::string delimiter)
+{
+	std::vector <clsBankClient> vClients = clsBankClient::getClientsList(FileName, delimiter);
+	int NumberOfClients = vClients.size();
+	PrintHeaderOfClientsList(NumberOfClients);
+	if (NumberOfClients == 0)
+		std::cout << std::right << std::setw(75) << "No Clients Available In the System!\n";
 	else
-		std::cout << "Client was not deleted.\n";
+		for (clsBankClient& tempClient : vClients)
+		{
+			PrintClientCard(tempClient);
+			std::cout << std::endl;
+		}
+	std::cout << "------------------------------------------------------------------------------------------------------------------------\n";
 }
-
 
 std::string FileClient = "ClientDate.txt";
 int main()
 {
-	DeleteScreen(FileClient, "#//#");
 	
+	ShowClientsList(FileClient, "#//#");
 
 	system("pause>0");
 	return 0;
