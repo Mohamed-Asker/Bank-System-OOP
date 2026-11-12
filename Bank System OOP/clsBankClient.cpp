@@ -8,7 +8,6 @@
 
 
 
-
 //Constructor.
 clsBankClient::clsBankClient(enMode Mode, const std::string& accNumber, const std::string& PinCode, double accBalance, const std::string& FirstName, const std::string& LastName, const std::string& Email, const std::string& Phone) :
 	clsPerson(FirstName, LastName, Email, Phone), _Mode(Mode), _accNumber(accNumber), _PinCode(PinCode), _accBalance(accBalance) {};
@@ -92,6 +91,21 @@ void clsBankClient::_SaveClientsDataToFile(std::vector <clsBankClient>& vClients
 	}
 }
 //Method (6):
+void clsBankClient::_AddDateLineToFile(const std::string& FileName, const std::string& delimiter)
+{
+	std::fstream file(FileName, std::ios::out | std::ios::app);
+	if (file.is_open())
+	{
+		file << _ConvertClientObjectToLine(*this, delimiter) << std::endl;
+		file.close();
+	}
+}
+//Method (7):
+void clsBankClient::_AddNewClientDataLine(const std::string& FileName, const std::string& delimiter)
+{
+	_AddDateLineToFile(FileName, delimiter);
+}
+//Method (8):
 void clsBankClient::_Update(const std::string& FileName, const std::string& delimiter)
 {
 	std::vector <clsBankClient> vClients = clsBankClient::_LoadClientsDateFromFile(FileName, delimiter);
@@ -105,6 +119,7 @@ void clsBankClient::_Update(const std::string& FileName, const std::string& deli
 	}
 	clsBankClient::_SaveClientsDataToFile(vClients, FileName, delimiter);
 }
+
 
 //Public Methods.
 //Method (1):
@@ -177,32 +192,66 @@ bool clsBankClient::isClientExist(const std::string& accNumber, const std::strin
 	return (!client.isEmpty());
 }
 //Method (6):
-clsBankClient::enSaveResult clsBankClient::Save(const std::string& FileName, const std::string& delimiter)
+clsBankClient::enSaveResult clsBankClient::Save(const std::string& accNumber,const std::string& FileName, const std::string& delimiter)
 {
 	switch (_Mode)
 	{
-	case clsBankClient::enMode::EmptyMode:
-		return clsBankClient::enSaveResult::svFildEmptyObject;
-
+	case enMode::EmptyMode:
+	{
+		if (isEmpty())
+			return enSaveResult::svFildEmptyObject;
+		break;
+	}
 	case clsBankClient::enMode::UpdateMode:
+	{
 		_Update(FileName, delimiter);
-		return clsBankClient::enSaveResult::svSucceeded;
+		return enSaveResult::svSucceeded;
+		break;
+	}
+	case clsBankClient::AddNewMode:
+	{
+		if (isClientExist(accNumber, FileName, delimiter))
+			return enSaveResult::svFildAccountNumberExist;
+		else
+		{
+			_AddNewClientDataLine(FileName, delimiter);
+			_Mode = enMode::UpdateMode;
+			return enSaveResult::svSucceeded;
+		}
+		break;
+	}
 	}
 }
 //Method (7):
 void clsBankClient::PrintSaveResult(enSaveResult SaveResult)
 {
-	if (SaveResult == enSaveResult::svSucceeded)
+	switch (SaveResult)
+	{
+	case enSaveResult::svSucceeded:
 	{
 		system("cls");
 		PrintInfo();
 		std::cout << "\nAccount Update successfully :-)\n";
+		break;
 	}
-	else
+	case enSaveResult::svFildEmptyObject:
 	{
 		system("cls");
 		PrintInfo();
-		std::cout << "\nNot Updated :-(\n";
+		std::cout << "\nError account was not saved because it's Empty!\n";
+		break;
 	}
-
+	case enSaveResult::svFildAccountNumberExist:
+	{
+		system("cls");
+		PrintInfo();
+		std::cout << "\nError account was not saved because account number is used!\n";
+		break;
+	}
+	}
+}
+//Method (8):
+clsBankClient clsBankClient::getAddNewClientObj(const std::string& accNumber)
+{
+	return clsBankClient(enMode::AddNewMode, accNumber, "", 0, "", "", "", "");
 }

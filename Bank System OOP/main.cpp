@@ -3,17 +3,17 @@
 #include "clsBankClient.h"
 
 
-void PrintHeaderOfUpdateClient()
+void PrintHeaderOfAddNewClient()
 {
-	std::cout << "\n\n-------------------------------";
-	std::cout << "\n      UPDATE CLIENT SCREEN";
-	std::cout << "\n-------------------------------";
-	std::cout << "\nUdateing Client: \n\n";
+	std::cout << "---------------------------------";
+	std::cout << "\n    ADD NEW CLIENT SCREEN";
+	std::cout << "\n---------------------------------";
+	std::cout << "\nAdding Client\n\n";
+
 }
 
 void ReadClientInfo(clsBankClient& client)
 {
-	PrintHeaderOfUpdateClient();
 	client.FirstName = clsInputValidate::ReadString("First Name");
 	client.LastName = clsInputValidate::ReadString("Last Name ");
 	client.PinCode = clsInputValidate::ReadString("Pin Code  ");
@@ -22,32 +22,34 @@ void ReadClientInfo(clsBankClient& client)
 	client.Balance = clsInputValidate::ReadPostiveDblNumber("Account Balance");
 }
 
-//Method (6):
-void UpdateClient(const std::string& FileName, const std::string& delimiter)
+
+void AddNewClient(const std::string& FileName, const std::string& delimiter)
 {
 	std::string accNumber;
+	PrintHeaderOfAddNewClient();
 	do
 	{
 		accNumber = clsInputValidate::ReadString("Account Number");
-		if (clsBankClient::isClientExist(accNumber, FileName, delimiter))
+		if (!clsBankClient::isClientExist(accNumber, FileName, delimiter))
 		{
 			system("cls");
+			PrintHeaderOfAddNewClient();
 			break;
 		}
-		std::cout << "Account number is not found, Enter another one.\n\n";
+		std::cout << "Account Number Is Already Used, Enter another one\n\n";
 	} while (true);
 
-	clsBankClient client = clsBankClient::FindClinet(accNumber, FileName, delimiter);
-	client.PrintInfo();
-	ReadClientInfo(client);
-	client.PrintSaveResult(client.Save(FileName, delimiter));
+	clsBankClient NewClient = clsBankClient::getAddNewClientObj(accNumber);
+	ReadClientInfo(NewClient);
+	NewClient.PrintSaveResult(NewClient.Save(accNumber, FileName, delimiter));
 }
 
 
 std::string FileClient = "ClientDate.txt";
 int main()
 {
-	UpdateClient(FileClient, "#//#");
+	
+	AddNewClient(FileClient, "#//#");
 
 	system("pause>0");
 	return 0;

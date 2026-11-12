@@ -14,12 +14,14 @@ private:
 	enum enMode
 	{
 		EmptyMode = 1,
-		UpdateMode = 2
+		UpdateMode = 2,
+		AddNewMode = 3
 	};
 	enum enSaveResult
 	{
 		svSucceeded = 1,
-		svFildEmptyObject = 2
+		svFildEmptyObject = 2,
+		svFildAccountNumberExist = 3
 	};
 
 	//Data Members.
@@ -40,8 +42,11 @@ private:
 	//Method (5):
 	static void _SaveClientsDataToFile(std::vector <clsBankClient>& vClients, const std::string& FileName, const std::string& delimiter);
 	//Method (6):
+	void _AddDateLineToFile(const std::string& FileName, const std::string& delimiter);
+	//Method (7):
+	void _AddNewClientDataLine(const std::string& FileName, const std::string& delimiter);
+	//Method (8):
 	void _Update(const std::string& FileName, const std::string& delimiter);
-
 
 public:
 	//Constructor.
@@ -73,8 +78,10 @@ public:
 	//Method (5):
 	static bool isClientExist(const std::string& accNumber, const std::string& PinCode, const std::string& FileName, const std::string& delimiter);
 	//Method (6):
-	enSaveResult Save(const std::string& FileName, const std::string& delimiter);
+	enSaveResult Save(const std::string& accNumber, const std::string& FileName, const std::string& delimiter);
 	//Method (7):
 	void PrintSaveResult(enSaveResult SaveResult);
+	//Method (8):
+	static clsBankClient getAddNewClientObj(const std::string& accNumber);
 
 };
