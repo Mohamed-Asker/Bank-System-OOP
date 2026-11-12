@@ -29,6 +29,7 @@ private:
 	std::string _accNumber;
 	std::string _PinCode;
 	double _accBalance;
+	bool _MarkForDelete = false;
 
 	//Private Methods.
 	//Method (1):
@@ -47,6 +48,8 @@ private:
 	void _AddNewClientDataLine(const std::string& FileName, const std::string& delimiter);
 	//Method (8):
 	void _Update(const std::string& FileName, const std::string& delimiter);
+	//Method (9):
+	void _MarkToDelete(std::vector <clsBankClient>& vClients, bool& isClientDeleted);
 
 public:
 	//Constructor.
@@ -55,16 +58,19 @@ public:
 	//Setters
 	void setPinCode(const std::string& PinCode);
 	void setAccountBalance(double Balance);
+	void setMarkForDelete(bool Mark);
 
 	//Getters
 	bool isEmpty();
-	std::string getAccountNumber();
+	std::string AccountNumber();
 	std::string getPinCode();
 	double getAccountBalance();
+	bool getMarkForDelet();
 
 	//Properties
 	__declspec(property(get = getPinCode, put = setPinCode)) std::string PinCode;
 	__declspec(property(get = getAccountBalance, put = setAccountBalance)) double Balance;
+	__declspec(property(get = getMarkForDelet, put = setMarkForDelete))bool MarkForDelet;
 
 	//Public Methods.
 	//Method (1):
@@ -83,5 +89,7 @@ public:
 	void PrintSaveResult(enSaveResult SaveResult);
 	//Method (8):
 	static clsBankClient getAddNewClientObj(const std::string& accNumber);
+	//Method (9):
+	bool Delete(const std::string& FileName, const std::string& delimiter);
 
 };

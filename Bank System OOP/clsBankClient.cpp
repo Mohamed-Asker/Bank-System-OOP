@@ -21,13 +21,17 @@ void clsBankClient::setAccountBalance(double NewBalance)
 {
 	_accBalance = NewBalance;
 }
+void clsBankClient::setMarkForDelete(bool Mark)
+{
+	_MarkForDelete = Mark;
+}
 
 //Getters
 bool clsBankClient::isEmpty()
 {
 	return _Mode == enMode::EmptyMode;
 }
-std::string clsBankClient::getAccountNumber()
+std::string clsBankClient::AccountNumber()
 {
 	return _accNumber;
 }
@@ -38,6 +42,10 @@ std::string clsBankClient::getPinCode()
 double clsBankClient::getAccountBalance()
 {
 	return _accBalance;
+}
+bool clsBankClient::getMarkForDelet()
+{
+	return _MarkForDelete;
 }
 
 //Private Methods.
@@ -51,7 +59,7 @@ clsBankClient clsBankClient::_ConvertLineDataToClientObject(std::string& line, c
 std::string clsBankClient::_ConvertClientObjectToLine(clsBankClient& client, const std::string& delimiter)
 {
 	std::string line;
-	line += client.getAccountNumber() + delimiter;
+	line += client.AccountNumber() + delimiter;
 	line += client.PinCode + delimiter;
 	line += std::to_string(client.Balance) + delimiter;
 	line += client.FirstName + delimiter;
@@ -85,8 +93,11 @@ void clsBankClient::_SaveClientsDataToFile(std::vector <clsBankClient>& vClients
 	std::fstream file(FileName, std::ios::out);
 	if (file.is_open())
 	{
-		for (clsBankClient& client : vClients)
-			file << _ConvertClientObjectToLine(client, delimiter) << std::endl;
+		for (clsBankClient& tempClient : vClients)
+			if (tempClient.MarkForDelet == false)
+			{
+				file << _ConvertClientObjectToLine(tempClient, delimiter) << std::endl;
+			}
 		file.close();
 	}
 }
@@ -111,13 +122,26 @@ void clsBankClient::_Update(const std::string& FileName, const std::string& deli
 	std::vector <clsBankClient> vClients = clsBankClient::_LoadClientsDateFromFile(FileName, delimiter);
 	for (clsBankClient& tempClient : vClients)
 	{
-		if (tempClient.getAccountNumber() == getAccountNumber())
+		if (tempClient.AccountNumber() == AccountNumber())
 		{
 			tempClient = *this;
 			break;
 		}
 	}
 	clsBankClient::_SaveClientsDataToFile(vClients, FileName, delimiter);
+}
+//Method (9):
+void clsBankClient::_MarkToDelete(std::vector <clsBankClient>& vClients, bool& isClientDeleted)
+{
+	for (clsBankClient& tempClient : vClients)
+	{
+		if (tempClient.AccountNumber() == this->AccountNumber())
+		{
+			tempClient.MarkForDelet = true;
+			isClientDeleted = true;
+			break;
+		}
+	}
 }
 
 
@@ -148,7 +172,7 @@ clsBankClient clsBankClient::FindClinet(const std::string& accNumber, const std:
 		while (std::getline(file, line))
 		{
 			clsBankClient client = _ConvertLineDataToClientObject(line, delimiter);
-			if (client.getAccountNumber() == accNumber)
+			if (client.AccountNumber() == accNumber)
 			{
 				file.close();
 				return client;
@@ -169,7 +193,7 @@ clsBankClient clsBankClient::FindClinet(const std::string& accNumber, const std:
 		while (std::getline(file, line))
 		{
 			clsBankClient client = _ConvertLineDataToClientObject(line, delimiter);
-			if (client.getAccountNumber() == accNumber && client.PinCode == PinCode)
+			if (client.AccountNumber() == accNumber && client.PinCode == PinCode)
 			{
 				file.close();
 				return client;
@@ -254,4 +278,15 @@ void clsBankClient::PrintSaveResult(enSaveResult SaveResult)
 clsBankClient clsBankClient::getAddNewClientObj(const std::string& accNumber)
 {
 	return clsBankClient(enMode::AddNewMode, accNumber, "", 0, "", "", "", "");
+}
+//Method (9):
+bool clsBankClient::Delete(const std::string& FileName, const std::string& delimiter)
+{
+	std::vector <clsBankClient> vClients = _LoadClientsDateFromFile(FileName, delimiter);
+	bool isClientDeleted = false;
+	_MarkToDelete(vClients, isClientDeleted);
+	_SaveClientsDataToFile(vClients, FileName, delimiter);
+	if (isClientDeleted)
+		*this = _getEmptyClientObject();
+	return isClientDeleted;
 }

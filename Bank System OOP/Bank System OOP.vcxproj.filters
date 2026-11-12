@@ -36,6 +36,9 @@
     <ClCompile Include="clsPerson.cpp">
       <Filter>Source Files\Helper Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Utility Library\Utility Library\clsUtil.cpp">
+      <Filter>Source Files\Helper Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsBankClient.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files\Helper Classes</Filter>
     </ClInclude>
     <ClInclude Include="clsPerson.h">
+      <Filter>Header Files\Helper Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Utility Library\Utility Library\clsUtil.h">
       <Filter>Header Files\Helper Classes</Filter>
     </ClInclude>
   </ItemGroup>

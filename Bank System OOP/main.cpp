@@ -1,55 +1,51 @@
 #include <iostream>
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
+#include "../../Utility Library/Utility Library/clsUtil.h"
 #include "clsBankClient.h"
 
-
-void PrintHeaderOfAddNewClient()
+void PrintHeaderOfDeleteScreen()
 {
-	std::cout << "---------------------------------";
-	std::cout << "\n    ADD NEW CLIENT SCREEN";
-	std::cout << "\n---------------------------------";
-	std::cout << "\nAdding Client\n\n";
-
+	std::cout << "-------------------------------";
+	std::cout << "\n      DELETE SCREEN";
+	std::cout << "\n-------------------------------\n";
 }
 
-void ReadClientInfo(clsBankClient& client)
-{
-	client.FirstName = clsInputValidate::ReadString("First Name");
-	client.LastName = clsInputValidate::ReadString("Last Name ");
-	client.PinCode = clsInputValidate::ReadString("Pin Code  ");
-	client.Email = clsInputValidate::ReadString("Email     ");
-	client.Phone = clsInputValidate::ReadString("Phone     ");
-	client.Balance = clsInputValidate::ReadPostiveDblNumber("Account Balance");
-}
-
-
-void AddNewClient(const std::string& FileName, const std::string& delimiter)
+void DeleteScreen(std::string FileName, std::string delimiter)
 {
 	std::string accNumber;
-	PrintHeaderOfAddNewClient();
+	PrintHeaderOfDeleteScreen();
 	do
 	{
 		accNumber = clsInputValidate::ReadString("Account Number");
-		if (!clsBankClient::isClientExist(accNumber, FileName, delimiter))
+		if (clsBankClient::isClientExist(accNumber, FileName, "#//#"))
 		{
 			system("cls");
-			PrintHeaderOfAddNewClient();
+			PrintHeaderOfDeleteScreen();
 			break;
 		}
-		std::cout << "Account Number Is Already Used, Enter another one\n\n";
+		std::cout << "Account number is not found, Enter another one.\n\n";
 	} while (true);
 
-	clsBankClient NewClient = clsBankClient::getAddNewClientObj(accNumber);
-	ReadClientInfo(NewClient);
-	NewClient.PrintSaveResult(NewClient.Save(accNumber, FileName, delimiter));
+	clsBankClient client = clsBankClient::FindClinet(accNumber, FileName, "#//#");
+	client.PrintInfo();
+
+	if (clsUtil::ConfirmAction("\nAre you sure you want to delete this client"))
+	{
+		if (client.Delete(FileName, delimiter))
+			std::cout << "Client Deleted Successfully.\n";
+		else
+			std::cout << "Error Client was not deleted.\n";
+	}
+	else
+		std::cout << "Client was not deleted.\n";
 }
 
 
 std::string FileClient = "ClientDate.txt";
 int main()
 {
+	DeleteScreen(FileClient, "#//#");
 	
-	AddNewClient(FileClient, "#//#");
 
 	system("pause>0");
 	return 0;
