@@ -24,5 +24,31 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="clsBankClient.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\String Library\String Library\clsString.cpp">
+      <Filter>Source Files\Helper Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Input Validate Library\Input Validate Library\clsInputValidate.cpp">
+      <Filter>Source Files\Helper Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="clsPerson.cpp">
+      <Filter>Source Files\Helper Classes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="clsBankClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\String Library\String Library\clsString.h">
+      <Filter>Header Files\Helper Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Input Validate Library\Input Validate Library\clsInputValidate.h">
+      <Filter>Header Files\Helper Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="clsPerson.h">
+      <Filter>Header Files\Helper Classes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

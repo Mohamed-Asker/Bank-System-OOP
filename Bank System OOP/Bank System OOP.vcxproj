@@ -139,7 +139,17 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Input Validate Library\Input Validate Library\clsInputValidate.cpp" />
+    <ClCompile Include="..\..\String Library\String Library\clsString.cpp" />
+    <ClCompile Include="clsBankClient.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="clsPerson.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Input Validate Library\Input Validate Library\clsInputValidate.h" />
+    <ClInclude Include="..\..\String Library\String Library\clsString.h" />
+    <ClInclude Include="clsBankClient.h" />
+    <ClInclude Include="clsPerson.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
