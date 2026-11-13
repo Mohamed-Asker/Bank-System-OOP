@@ -291,7 +291,16 @@ bool clsBankClient::Delete(const std::string& FileName, const std::string& delim
 	return isClientDeleted;
 }
 //Method (10):
-std::vector <clsBankClient> clsBankClient::getClientsList(const std::string& FileName, const std::string& delimiter)
+std::vector <clsBankClient> clsBankClient::ClientsList(const std::string& FileName, const std::string& delimiter)
 {
 	return _LoadClientsDateFromFile(FileName, delimiter);
+}
+//Method (11):
+double clsBankClient::TotalBalance(const std::string& FileName, const std::string& delimiter)
+{
+	std::vector <clsBankClient> vClients = clsBankClient::ClientsList(FileName, delimiter);
+	double TotalBalance = 0;
+	for (clsBankClient& tempClient : vClients)
+		TotalBalance += tempClient.Balance;
+	return TotalBalance;
 }

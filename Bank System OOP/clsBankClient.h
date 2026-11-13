@@ -92,6 +92,8 @@ public:
 	//Method (9):
 	bool Delete(const std::string& FileName, const std::string& delimiter);
 	//Method (10):
-	static std::vector <clsBankClient> getClientsList(const std::string& FileName, const std::string& delimiter);
+	static std::vector <clsBankClient> ClientsList(const std::string& FileName, const std::string& delimiter);
+	//Method (11):
+	static double TotalBalance(const std::string& FileName, const std::string& delimiter);
 
 };
