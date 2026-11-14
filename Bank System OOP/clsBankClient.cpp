@@ -11,7 +11,10 @@
 //Constructor.
 clsBankClient::clsBankClient(enMode Mode, const std::string& accNumber, const std::string& PinCode, double accBalance, const std::string& FirstName, const std::string& LastName, const std::string& Email, const std::string& Phone) :
 	clsPerson(FirstName, LastName, Email, Phone), _Mode(Mode), _accNumber(accNumber), _PinCode(PinCode), _accBalance(accBalance) {};
-
+clsBankClient::clsBankClient() 
+{
+	*this = _getEmptyClientObject();
+}
 //Setters
 void clsBankClient::setPinCode(const std::string& NewPinCode)
 {
@@ -192,15 +195,21 @@ clsBankClient clsBankClient::FindClinet(const std::string& accNumber, const std:
 	return _getEmptyClientObject();
 }
 //Method (4):
-bool clsBankClient::isClientExist(const std::string& accNumber, const std::string& FileName, const std::string& delimiter)
+bool clsBankClient::isClientExist(const std::string& accNumber, const std::string& FileName, const std::string& delimiter, clsBankClient* Ptr)
 {
 	clsBankClient client = clsBankClient::FindClinet(accNumber, FileName, delimiter);
+	if (client._Mode != enMode::EmptyMode)
+		if (Ptr != nullptr)
+			*Ptr = client;
 	return (!client.isEmpty());
 }
 //Method (5):
-bool clsBankClient::isClientExist(const std::string& accNumber, const std::string& PinCode, const std::string& FileName, const std::string& delimiter)
+bool clsBankClient::isClientExist(const std::string& accNumber, const std::string& PinCode, const std::string& FileName, const std::string& delimiter, clsBankClient* Ptr)
 {
 	clsBankClient client = clsBankClient::FindClinet(accNumber, PinCode, FileName, delimiter);
+	if (client._Mode != enMode::EmptyMode)
+		if (Ptr != nullptr)
+			*Ptr = client;
 	return (!client.isEmpty());
 }
 //Method (6):

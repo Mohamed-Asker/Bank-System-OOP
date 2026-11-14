@@ -5,7 +5,7 @@
 
 //Constructor.
 clsPerson::clsPerson(const std::string& FirstName, const std::string& LastName, const std::string& Email, const std::string& Phone) : _FirstName(FirstName), _LastName(LastName), _Email(Email), _Phone(Phone) {};
-
+clsPerson::clsPerson() {}
 
 //Setters.
 void clsPerson::setFirstName(const std::string& FirstName)

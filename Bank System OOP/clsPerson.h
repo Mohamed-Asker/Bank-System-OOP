@@ -14,6 +14,7 @@ private:
 public:
 	//Constructor.
 	clsPerson(const std::string& FirstName, const std::string& LastName, const std::string& Email, const std::string& Phone);
+	clsPerson();
 
 	//Setters.
 	void setFirstName(const std::string& FirstName);

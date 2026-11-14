@@ -52,7 +52,7 @@ private:
 public:
 	//Constructor.
 	clsBankClient(enMode Mode, const std::string& accNumber, const std::string& PinCode, double accBalance, const std::string& FirstName, const std::string& LastName, const std::string& Email, const std::string& Phone);
-
+	clsBankClient();
 	//Setters
 	void setPinCode(const std::string& PinCode);
 	void setAccountBalance(double Balance);
@@ -86,9 +86,9 @@ public:
 	//Method (3):
 	static clsBankClient FindClinet(const std::string& accNumber, const std::string& PinCode, const std::string& FileName, const std::string& delimiter);
 	//Method (4):
-	static bool isClientExist(const std::string& accNumber, const std::string& FileName, const std::string& delimiter);
+	static bool isClientExist(const std::string& accNumber, const std::string& FileName, const std::string& delimiter, clsBankClient* Ptr = nullptr);
 	//Method (5):
-	static bool isClientExist(const std::string& accNumber, const std::string& PinCode, const std::string& FileName, const std::string& delimiter);
+	static bool isClientExist(const std::string& accNumber, const std::string& PinCode, const std::string& FileName, const std::string& delimiter, clsBankClient* Ptr = nullptr);
 	//Method (6):
 	enSaveResult Save(const std::string& accNumber, const std::string& FileName, const std::string& delimiter);
 	//Method (7):

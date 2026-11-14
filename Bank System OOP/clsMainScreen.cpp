@@ -18,10 +18,10 @@ void clsMainScreen::_ShowAddNewClientScreen(const std::string& FileName, const s
 	clsUtil::PressAnyKey("Press any key to go back to main menu");
 }
 //Method(3);
-void clsMainScreen::_ShowDeleteClientScreen(const std::string& FileNam, const std::string& delimiter)
+void clsMainScreen::_ShowDeleteClientScreen(const std::string& FileName, const std::string& delimiter)
 {
 	clsUtil::ResetScreen();
-	std::cout << "Delete client screen will be here soon";
+	clsDeleteClientScreen::ShowDeleteClientScreen(FileName, delimiter);
 	clsUtil::PressAnyKey("Press any key to go back to main menu");
 }
 //Method(4);
