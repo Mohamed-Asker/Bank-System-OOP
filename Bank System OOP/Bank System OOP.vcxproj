@@ -143,6 +143,8 @@
     <ClCompile Include="..\..\String Library\String Library\clsString.cpp" />
     <ClCompile Include="..\..\Utility Library\Utility Library\clsUtil.cpp" />
     <ClCompile Include="clsBankClient.cpp" />
+    <ClCompile Include="clsMainScreen.cpp" />
+    <ClCompile Include="clsScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="clsPerson.cpp" />
   </ItemGroup>
@@ -151,7 +153,9 @@
     <ClInclude Include="..\..\String Library\String Library\clsString.h" />
     <ClInclude Include="..\..\Utility Library\Utility Library\clsUtil.h" />
     <ClInclude Include="clsBankClient.h" />
+    <ClInclude Include="clsMainScreen.h" />
     <ClInclude Include="clsPerson.h" />
+    <ClInclude Include="clsScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
