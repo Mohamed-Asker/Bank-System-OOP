@@ -11,10 +11,10 @@ void clsMainScreen::_ShowClientListScreen(const std::string& FileName, const std
 	clsUtil::PressAnyKey("Press any key to go back to main menu");
 }
 //Method(2);
-void clsMainScreen::_ShowAddNewClientScreen(const std::string& FileNam, const std::string& delimiter)
+void clsMainScreen::_ShowAddNewClientScreen(const std::string& FileName, const std::string& delimiter)
 {
 	clsUtil::ResetScreen();
-	std::cout << "Add new client screen will be here soon";
+	clsAddNewClientScreen::ShowAddNewClientScreen(FileName, delimiter);
 	clsUtil::PressAnyKey("Press any key to go back to main menu");
 }
 //Method(3);
@@ -59,7 +59,7 @@ void clsMainScreen::_ShowManageUserScreen(const std::string& FileNam, const std:
 void clsMainScreen::ShowMainMenu(const std::string& FileName, const std::string& delimiter)
 {
 	clsScreen::_DrawScreenHeader("MAIN MENU");
-	std::cout << "\n[1]" << " Show Client List";
+	std::cout << "[1]" << " Show Client List";
 	std::cout << "\n[2]" << " Add New Client";
 	std::cout << "\n[3]" << " Delete Client";
 	std::cout << "\n[4]" << " Update Client Info";

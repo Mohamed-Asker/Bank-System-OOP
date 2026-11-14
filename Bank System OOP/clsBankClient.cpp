@@ -145,22 +145,10 @@ void clsBankClient::_MarkToDelete(std::vector <clsBankClient>& vClients, bool& i
 }
 
 
+
 //Public Methods.
 //Method (1):
-void clsBankClient::PrintInfo()
-{
-	std::cout << "           Client Info";
-	std::cout << "\n-------------------------------";
-	std::cout << "\nAccount Number : " << _accNumber;
-	std::cout << "\nPin Code       : " << _PinCode;
-	std::cout << "\nFirst Name     : " << FirstName;
-	std::cout << "\nLast Name      : " << LastName;
-	std::cout << "\nFull Name      : " << FullName();
-	std::cout << "\nEmail          : " << Email;
-	std::cout << "\nPhone          : " << Phone;
-	std::cout << "\nAccount Balance: " << _accBalance;
-	std::cout << "\n-------------------------------";
-}
+
 //Method (2):
 clsBankClient clsBankClient::FindClinet(const std::string& accNumber, const std::string& FileName, const std::string& delimiter)
 {
@@ -247,33 +235,7 @@ clsBankClient::enSaveResult clsBankClient::Save(const std::string& accNumber,con
 	}
 }
 //Method (7):
-void clsBankClient::PrintSaveResult(enSaveResult SaveResult)
-{
-	switch (SaveResult)
-	{
-	case enSaveResult::svSucceeded:
-	{
-		system("cls");
-		PrintInfo();
-		std::cout << "\nAccount Update successfully :-)\n";
-		break;
-	}
-	case enSaveResult::svFildEmptyObject:
-	{
-		system("cls");
-		PrintInfo();
-		std::cout << "\nError account was not saved because it's Empty!\n";
-		break;
-	}
-	case enSaveResult::svFildAccountNumberExist:
-	{
-		system("cls");
-		PrintInfo();
-		std::cout << "\nError account was not saved because account number is used!\n";
-		break;
-	}
-	}
-}
+
 //Method (8):
 clsBankClient clsBankClient::getAddNewClientObj(const std::string& accNumber)
 {

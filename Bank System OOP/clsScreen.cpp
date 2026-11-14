@@ -22,5 +22,5 @@ void clsScreen::_DrawScreenHeader(const std::string& title, const std::string& s
 	}
 
 	// Draw Bottom Separator
-	std::cout << std::string(width, ' ') << std::string(SeparatorWidth, '=');
+	std::cout << std::string(width, ' ') << std::string(SeparatorWidth, '=') << "\n";
 }

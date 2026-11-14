@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
+#include "clsBankClient.h"
 #include "clsScreen.h"
 #include "clsClientScreenList.h"
+#include "clsAddNewClientScreen.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 
@@ -27,7 +29,7 @@ private:
 	//Method(1);
 	static void _ShowClientListScreen(const std::string& FileName, const std::string& delimiter);
 	//Method(2);
-	static void _ShowAddNewClientScreen(const std::string& FileNam, const std::string& delimiter);
+	static void _ShowAddNewClientScreen(const std::string& FileName, const std::string& delimiter);
 	//Method(3);
 	static void _ShowDeleteClientScreen(const std::string& FileNam, const std::string& delimiter);
 	//Method(4);

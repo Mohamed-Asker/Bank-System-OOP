@@ -4,7 +4,7 @@
 //Method(1):
 void clsClientScreenList::_PrintHeaderOfShowClientList()
 {
-	std::cout << "\n========================================================================================================================\n";
+	std::cout << "========================================================================================================================\n";
 	std::cout  << std::left << std::setw(20) << "Account Number";
 	std::cout  << std::left << std::setw(15) << "Pin Code";
 	std::cout  << std::left << std::setw(40) << "Client Name";

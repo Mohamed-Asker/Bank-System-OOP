@@ -16,5 +16,6 @@ void RunApplication(const std::string& FileName, const std::string& delimiter)
 int main()
 {
 	RunApplication("ClientDate.txt", "#//#");
+	
 	return 0;
 }
