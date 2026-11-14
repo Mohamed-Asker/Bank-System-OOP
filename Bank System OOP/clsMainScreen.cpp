@@ -1,14 +1,13 @@
 #include <iostream>
 #include "clsMainScreen.h"
-#include "../../Utility Library/Utility Library/clsUtil.h"
-#include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
+
 
 //Priavte Methods:
 //Method(1);
-void clsMainScreen::_ShowClientListScreen(const std::string& FileNam, const std::string& delimiter)
+void clsMainScreen::_ShowClientListScreen(const std::string& FileName, const std::string& delimiter)
 {
 	clsUtil::ResetScreen();
-	std::cout << "Client list screen will be here soon";
+	clsClientScreenList::ShowClientListScreen(FileName, delimiter);
 	clsUtil::PressAnyKey("Press any key to go back to main menu");
 }
 //Method(2);

@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
 #include "clsScreen.h"
+#include "clsClientScreenList.h"
+#include "../../Utility Library/Utility Library/clsUtil.h"
+#include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 
 
 class clsMainScreen : protected clsScreen
@@ -22,7 +25,7 @@ private:
 
 	//Priavte Methods:
 	//Method(1);
-	static void _ShowClientListScreen(const std::string& FileNam, const std::string& delimiter);
+	static void _ShowClientListScreen(const std::string& FileName, const std::string& delimiter);
 	//Method(2);
 	static void _ShowAddNewClientScreen(const std::string& FileNam, const std::string& delimiter);
 	//Method(3);
