@@ -1,5 +1,6 @@
 #include <iostream>
 #include "clsMainScreen.h"
+#include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 
 
 //Public Methods:
@@ -16,4 +17,10 @@ void clsMainScreen::ShowMainMenu(const std::string& FileName, const std::string&
 	std::cout << "\n[7]" << "Manage Users";
 	std::cout << "\n[8]" << "Logout";
 	std::cout << "\n----------------------------------------";
+}
+
+//Method(2);
+clsMainScreen::enMainMenuOptions clsMainScreen::ReadMainMenuOption(short from, short to, const std::string& msg)
+{
+	return enMainMenuOptions(clsInputValidate::ReadShortNumberBetween(msg , from, to));
 }
