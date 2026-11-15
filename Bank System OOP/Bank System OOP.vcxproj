@@ -148,6 +148,7 @@
     <ClCompile Include="clsDeleteClientScreen.cpp" />
     <ClCompile Include="clsMainScreen.cpp" />
     <ClCompile Include="clsScreen.cpp" />
+    <ClCompile Include="clsUpdateClientScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="clsPerson.cpp" />
   </ItemGroup>
@@ -162,6 +163,7 @@
     <ClInclude Include="clsMainScreen.h" />
     <ClInclude Include="clsPerson.h" />
     <ClInclude Include="clsScreen.h" />
+    <ClInclude Include="clsUpdateClientScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

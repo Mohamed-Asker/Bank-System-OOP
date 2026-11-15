@@ -60,6 +60,9 @@
     <ClCompile Include="clsDeleteClientScreen.cpp">
       <Filter>Source Files\Screens</Filter>
     </ClCompile>
+    <ClCompile Include="clsUpdateClientScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsBankClient.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
     <ClInclude Include="clsDeleteClientScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="clsUpdateClientScreen.h">
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
   </ItemGroup>
