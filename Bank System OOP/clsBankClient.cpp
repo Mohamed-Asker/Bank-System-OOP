@@ -1,10 +1,5 @@
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <string>
 #include "clsBankClient.h"
-#include "../../String Library/String Library/clsString.h"
-#include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
+
 
 
 

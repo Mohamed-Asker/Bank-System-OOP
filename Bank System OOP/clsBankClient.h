@@ -1,10 +1,11 @@
 #pragma once
-#pragma once
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <string>
 #include "clsPerson.h"
-
-
+#include "../../String Library/String Library/clsString.h"
+#include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 
 
 class clsBankClient : public clsPerson

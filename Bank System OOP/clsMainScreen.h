@@ -6,6 +6,7 @@
 #include "clsAddNewClientScreen.h"
 #include "clsDeleteClientScreen.h"
 #include "clsUpdateClientScreen.h"
+#include "clsFindClientScreen.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 
@@ -37,7 +38,7 @@ private:
 	//Method(4);
 	static void _ShowUpdateClientScreen(const std::string& FileName, const std::string& delimiter);
 	//Method(5);
-	static void _ShowFindClientScreen(const std::string& FileNam, const std::string& delimiter);
+	static void _ShowFindClientScreen(const std::string& FileName, const std::string& delimiter);
 	//Method(6);
 	static void _ShowTransactionScreen(const std::string& FileNam, const std::string& delimiter);
 	//Method(7);

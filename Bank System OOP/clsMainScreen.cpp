@@ -1,4 +1,3 @@
-#include <iostream>
 #include "clsMainScreen.h"
 
 
@@ -32,10 +31,10 @@ void clsMainScreen::_ShowUpdateClientScreen(const std::string& FileName, const s
 	clsUtil::PressAnyKey("Press any key to go back to main menu");
 }
 //Method(5);
-void clsMainScreen::_ShowFindClientScreen(const std::string& FileNam, const std::string& delimiter)
+void clsMainScreen::_ShowFindClientScreen(const std::string& FileName, const std::string& delimiter)
 {
 	clsUtil::ResetScreen();
-	std::cout << "Find client screen will be here soon";
+	clsFindClientScreen::ShowFindClientScreen(FileName, delimiter);
 	clsUtil::PressAnyKey("Press any key to go back to main menu");
 }
 //Method(6);
