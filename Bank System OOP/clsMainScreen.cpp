@@ -38,10 +38,10 @@ void clsMainScreen::_ShowFindClientScreen(const std::string& FileName, const std
 	clsUtil::PressAnyKey("Press any key to go back to main menu");
 }
 //Method(6);
-void clsMainScreen::_ShowTransactionScreen(const std::string& FileNam, const std::string& delimiter)
+void clsMainScreen::_ShowTransactionScreen(const std::string& FileName, const std::string& delimiter)
 {
 	clsUtil::ResetScreen();
-	std::cout << "Transaction screen will be here soon";
+	clsTransactionsScreen::ShowTransactionsMenuScreen(FileName, delimiter);
 	clsUtil::PressAnyKey("Press any key to go back to main menu");
 }
 //Method(7);
