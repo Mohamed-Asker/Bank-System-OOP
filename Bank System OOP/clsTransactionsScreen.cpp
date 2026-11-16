@@ -45,7 +45,7 @@ bool clsTransactionsScreen::_PerformTransactionMenuOption(enTransactionsMenuOpti
 void clsTransactionsScreen::_ShowDepositScreen(const std::string& FileName, const std::string& delimiter)
 {
 	clsUtil::ResetScreen();
-	std::cout << "Deposit screen will be here soon\n";
+	clsDepositScreen::_ShowDepositScreen(FileName, delimiter);
 }
 //Method(5):
 void clsTransactionsScreen::_ShowWithdrawScreen(const std::string& FileName, const std::string& delimiter)

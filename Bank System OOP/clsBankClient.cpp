@@ -270,3 +270,9 @@ double clsBankClient::TotalBalance(const std::string& FileName, const std::strin
 		TotalBalance += tempClient.Balance;
 	return TotalBalance;
 }
+//Method (12):
+bool clsBankClient::Deposit(double Amount, const std::string& FileName, const std::string& delimiter)
+{
+	Balance += Amount;
+	return Save(AccountNumber(), FileName, delimiter) == enSaveResult::svSucceeded;
+}

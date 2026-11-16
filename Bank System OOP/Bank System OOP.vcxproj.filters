@@ -75,6 +75,9 @@
     <ClCompile Include="clsScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="clsDepositScreen.cpp">
+      <Filter>Source Files\Transactions Menu Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsBankClient.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="clsScreen.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="clsDepositScreen.h">
+      <Filter>Header Files\Transactions Menu Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

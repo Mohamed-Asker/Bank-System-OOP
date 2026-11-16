@@ -102,4 +102,6 @@ public:
 	static std::vector <clsBankClient> ClientsList(const std::string& FileName, const std::string& delimiter);
 	//Method (11):
 	static double TotalBalance(const std::string& FileName, const std::string& delimiter);
-};
+	//Method (12):
+	bool Deposit(double Amount, const std::string& FileName, const std::string& delimiter);
+}; 
