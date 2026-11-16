@@ -51,7 +51,7 @@ void clsTransactionsScreen::_ShowDepositScreen(const std::string& FileName, cons
 void clsTransactionsScreen::_ShowWithdrawScreen(const std::string& FileName, const std::string& delimiter)
 {
 	clsUtil::ResetScreen();
-	std::cout << "Withdraw screen will be here soon\n";
+	clsWithDrawScreen::ShowWithdrawScreen(FileName, delimiter);
 }
 //Method(6):
 void clsTransactionsScreen::_ShowTotalBalanceScreen(const std::string& FileName, const std::string& delimiter)

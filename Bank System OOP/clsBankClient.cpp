@@ -276,3 +276,11 @@ bool clsBankClient::Deposit(double Amount, const std::string& FileName, const st
 	Balance += Amount;
 	return Save(AccountNumber(), FileName, delimiter) == enSaveResult::svSucceeded;
 }
+//Method (13):
+bool clsBankClient::Withdraw(double Amount, const std::string& FileName, const std::string& delimiter)
+{
+	if (Amount > Balance)
+		return false;
+	Balance -= Amount;
+	return Save(AccountNumber(), FileName, delimiter) == enSaveResult::svSucceeded;
+}
