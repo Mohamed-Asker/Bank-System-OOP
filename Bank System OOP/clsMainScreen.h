@@ -8,6 +8,7 @@
 #include "clsUpdateClientScreen.h"
 #include "clsFindClientScreen.h"
 #include "clsTransactionsScreen.h"
+#include "clsManageUserScreen.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 
@@ -43,7 +44,7 @@ private:
 	//Method(6);
 	static void _ShowTransactionScreen(const std::string& FileName, const std::string& delimiter);
 	//Method(7);
-	static void _ShowManageUserScreen(const std::string& FileNam, const std::string& delimiter);
+	static void _ShowManageUserScreen(const std::string& FileName, const std::string& delimiter);
 
 public:
 

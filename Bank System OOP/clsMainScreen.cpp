@@ -39,10 +39,10 @@ void clsMainScreen::_ShowTransactionScreen(const std::string& FileName, const st
 	clsTransactionsScreen::RunTransactionsMenu(FileName, delimiter);
 }
 //Method(7);
-void clsMainScreen::_ShowManageUserScreen(const std::string& FileNam, const std::string& delimiter)
+void clsMainScreen::_ShowManageUserScreen(const std::string& FileName, const std::string& delimiter)
 {
 	clsUtil::ResetScreen();
-	std::cout << "Manage users screen will be here soon";
+	clsManageUserScreen::RunUserMenuScreen(FileName, delimiter);
 }
 
 
@@ -59,7 +59,7 @@ void clsMainScreen::ShowMainMenu(const std::string& FileName, const std::string&
 	std::cout << "\n[6]" << " Transaction Menu";
 	std::cout << "\n[7]" << " Manage Users";
 	std::cout << "\n[8]" << " Logout";
-	std::cout << "\n----------------------------------------\n";
+	std::cout << "\n------------------------------------------\n";
 }
 //Method(2);
 clsMainScreen::enMainMenuOptions clsMainScreen::ReadMainMenuOption(short from, short to, const std::string& msg)
@@ -102,7 +102,6 @@ bool clsMainScreen::PerformMainMenuOprtion(enMainMenuOptions UserChoose, const s
 
 	case enMainMenuOptions::ManageUsers:
 		_ShowManageUserScreen(FileName, delimiter);
-		clsUtil::PressAnyKey("Press any key to go back to main menu");
 		return true;
 
 	case enMainMenuOptions::Exit:

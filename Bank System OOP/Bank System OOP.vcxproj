@@ -149,6 +149,7 @@
     <ClCompile Include="clsDepositScreen.cpp" />
     <ClCompile Include="clsFindClientScreen.cpp" />
     <ClCompile Include="clsMainScreen.cpp" />
+    <ClCompile Include="clsManageUserScreen.cpp" />
     <ClCompile Include="clsScreen.cpp" />
     <ClCompile Include="clsTotalBalaceScreen.cpp" />
     <ClCompile Include="clsTransactionsScreen.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="clsDepositScreen.h" />
     <ClInclude Include="clsFindClientScreen.h" />
     <ClInclude Include="clsMainScreen.h" />
+    <ClInclude Include="clsManageUserScreen.h" />
     <ClInclude Include="clsPerson.h" />
     <ClInclude Include="clsScreen.h" />
     <ClInclude Include="clsTotalBalaceScreen.h" />

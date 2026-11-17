@@ -31,6 +31,18 @@
     <Filter Include="Source Files\Main Menu Screens">
       <UniqueIdentifier>{6b1daebc-8934-4a84-b104-b65feceed3f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Main Classes">
+      <UniqueIdentifier>{9005f118-0ee2-4618-be57-b86de4526ecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Main Classes">
+      <UniqueIdentifier>{7e897fff-e3e0-4f66-a30e-5eda542234d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Users Screens">
+      <UniqueIdentifier>{d2f736cd-f368-4898-8d6a-5ac7e8d6d1cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Users Screens">
+      <UniqueIdentifier>{dce9733c-b01e-4286-92c6-410946d23cf4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -44,12 +56,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Utility Library\Utility Library\clsUtil.cpp">
       <Filter>Source Files\Helper Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="clsBankClient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="clsPerson.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="clsMainScreen.cpp">
       <Filter>Source Files\Main Menu Screens</Filter>
@@ -72,9 +78,6 @@
     <ClCompile Include="clsTransactionsScreen.cpp">
       <Filter>Source Files\Transactions Menu Screens</Filter>
     </ClCompile>
-    <ClCompile Include="clsScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="clsDepositScreen.cpp">
       <Filter>Source Files\Transactions Menu Screens</Filter>
     </ClCompile>
@@ -84,11 +87,20 @@
     <ClCompile Include="clsTotalBalaceScreen.cpp">
       <Filter>Source Files\Transactions Menu Screens</Filter>
     </ClCompile>
+    <ClCompile Include="clsBankClient.cpp">
+      <Filter>Source Files\Main Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="clsPerson.cpp">
+      <Filter>Source Files\Main Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="clsScreen.cpp">
+      <Filter>Source Files\Main Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="clsManageUserScreen.cpp">
+      <Filter>Source Files\Users Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="clsBankClient.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\String Library\String Library\clsString.h">
       <Filter>Header Files\Helper Classes</Filter>
     </ClInclude>
@@ -100,9 +112,6 @@
     </ClInclude>
     <ClInclude Include="clsMainScreen.h">
       <Filter>Header Files\Main Menu Screens</Filter>
-    </ClInclude>
-    <ClInclude Include="clsPerson.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="clsClientScreenList.h">
       <Filter>Header Files\Main Menu Screens</Filter>
@@ -122,9 +131,6 @@
     <ClInclude Include="clsTransactionsScreen.h">
       <Filter>Header Files\Transactions Menu Screens</Filter>
     </ClInclude>
-    <ClInclude Include="clsScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="clsDepositScreen.h">
       <Filter>Header Files\Transactions Menu Screens</Filter>
     </ClInclude>
@@ -133,6 +139,18 @@
     </ClInclude>
     <ClInclude Include="clsTotalBalaceScreen.h">
       <Filter>Header Files\Transactions Menu Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="clsBankClient.h">
+      <Filter>Header Files\Main Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="clsPerson.h">
+      <Filter>Header Files\Main Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="clsScreen.h">
+      <Filter>Header Files\Main Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="clsManageUserScreen.h">
+      <Filter>Header Files\Users Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
