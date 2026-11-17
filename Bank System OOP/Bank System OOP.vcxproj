@@ -154,6 +154,7 @@
     <ClCompile Include="clsTotalBalaceScreen.cpp" />
     <ClCompile Include="clsTransactionsScreen.cpp" />
     <ClCompile Include="clsUpdateClientScreen.cpp" />
+    <ClCompile Include="clsUser.cpp" />
     <ClCompile Include="clsWithDrawScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="clsPerson.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="clsTotalBalaceScreen.h" />
     <ClInclude Include="clsTransactionsScreen.h" />
     <ClInclude Include="clsUpdateClientScreen.h" />
+    <ClInclude Include="clsUser.h" />
     <ClInclude Include="clsWithDrawScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

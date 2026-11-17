@@ -96,7 +96,7 @@ void clsManageUserScreen::RunUserMenuScreen(const std::string& FileName, const s
 	bool GoMainMenu = true;
 	do
 	{
-		system("cls");
+		system("cls"); 
 		clsScreen::_DrawScreenHeader("MANAGE USERS SCREEN");
 		_ShowManageUserMenu();
 		GoMainMenu = _PerformUserMenuOption(_ReadUserMenuOption(), FileName, delimiter);
