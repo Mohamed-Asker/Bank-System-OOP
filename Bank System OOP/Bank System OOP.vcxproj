@@ -150,6 +150,7 @@
     <ClCompile Include="clsFindClientScreen.cpp" />
     <ClCompile Include="clsMainScreen.cpp" />
     <ClCompile Include="clsScreen.cpp" />
+    <ClCompile Include="clsTotalBalaceScreen.cpp" />
     <ClCompile Include="clsTransactionsScreen.cpp" />
     <ClCompile Include="clsUpdateClientScreen.cpp" />
     <ClCompile Include="clsWithDrawScreen.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="clsMainScreen.h" />
     <ClInclude Include="clsPerson.h" />
     <ClInclude Include="clsScreen.h" />
+    <ClInclude Include="clsTotalBalaceScreen.h" />
     <ClInclude Include="clsTransactionsScreen.h" />
     <ClInclude Include="clsUpdateClientScreen.h" />
     <ClInclude Include="clsWithDrawScreen.h" />

@@ -19,9 +19,6 @@
     <Filter Include="Source Files\Helper Classes">
       <UniqueIdentifier>{5d8adc4d-95ca-4e41-91e6-b8acbd4edc70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Screens">
-      <UniqueIdentifier>{6b1daebc-8934-4a84-b104-b65feceed3f7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Main Menu Screens">
       <UniqueIdentifier>{5e0114d5-748c-4436-be8e-41f60223f127}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,9 @@
     </Filter>
     <Filter Include="Source Files\Transactions Menu Screens">
       <UniqueIdentifier>{242bfa2d-9d8a-4760-8e93-2c571b7bef7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Main Menu Screens">
+      <UniqueIdentifier>{6b1daebc-8934-4a84-b104-b65feceed3f7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,22 +52,22 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="clsMainScreen.cpp">
-      <Filter>Source Files\Screens</Filter>
+      <Filter>Source Files\Main Menu Screens</Filter>
     </ClCompile>
     <ClCompile Include="clsClientScreenList.cpp">
-      <Filter>Source Files\Screens</Filter>
+      <Filter>Source Files\Main Menu Screens</Filter>
     </ClCompile>
     <ClCompile Include="clsAddNewClientScreen.cpp">
-      <Filter>Source Files\Screens</Filter>
+      <Filter>Source Files\Main Menu Screens</Filter>
     </ClCompile>
     <ClCompile Include="clsDeleteClientScreen.cpp">
-      <Filter>Source Files\Screens</Filter>
+      <Filter>Source Files\Main Menu Screens</Filter>
     </ClCompile>
     <ClCompile Include="clsUpdateClientScreen.cpp">
-      <Filter>Source Files\Screens</Filter>
+      <Filter>Source Files\Main Menu Screens</Filter>
     </ClCompile>
     <ClCompile Include="clsFindClientScreen.cpp">
-      <Filter>Source Files\Screens</Filter>
+      <Filter>Source Files\Main Menu Screens</Filter>
     </ClCompile>
     <ClCompile Include="clsTransactionsScreen.cpp">
       <Filter>Source Files\Transactions Menu Screens</Filter>
@@ -79,6 +79,9 @@
       <Filter>Source Files\Transactions Menu Screens</Filter>
     </ClCompile>
     <ClCompile Include="clsWithDrawScreen.cpp">
+      <Filter>Source Files\Transactions Menu Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="clsTotalBalaceScreen.cpp">
       <Filter>Source Files\Transactions Menu Screens</Filter>
     </ClCompile>
   </ItemGroup>
@@ -126,6 +129,9 @@
       <Filter>Header Files\Transactions Menu Screens</Filter>
     </ClInclude>
     <ClInclude Include="clsWithDrawScreen.h">
+      <Filter>Header Files\Transactions Menu Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="clsTotalBalaceScreen.h">
       <Filter>Header Files\Transactions Menu Screens</Filter>
     </ClInclude>
   </ItemGroup>

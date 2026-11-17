@@ -3,6 +3,7 @@
 #include "clsScreen.h"
 #include "clsDepositScreen.h"
 #include "clsWithDrawScreen.h"
+#include "clsTotalBalaceScreen.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 
