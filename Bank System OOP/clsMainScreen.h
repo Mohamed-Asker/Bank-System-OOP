@@ -45,16 +45,19 @@ private:
 	static void _ShowTransactionScreen(const std::string& FileName, const std::string& delimiter);
 	//Method(7);
 	static void _ShowManageUserScreen(const std::string& FileName, const std::string& delimiter);
+	//Method(8);
+	static void _ShowMainMenu();
+	//Method(9);
+	static enMainMenuOptions _ReadMainMenuOption();
+	//Method(10);
+	static bool _PerformMainMenuOprtion(enMainMenuOptions UserChoose,const std::string& ClientsFileName, const std::string& UsersFileName,const std::string& delimiter);
 
 public:
 
-
 	//Public Methods:
     //Method(1);
-	static void ShowMainMenu();
-	//Method(2);
-	static enMainMenuOptions ReadMainMenuOption(short from, short to, const std::string& msg = "Choose what do you want to do");
-	//Method(3);
-	static bool PerformMainMenuOprtion(enMainMenuOptions UserChoose,const std::string& ClientsFileName, const std::string& UsersFileName,const std::string& delimiter);
+	static void RunMainMenu(const std::string& ClientsFileName, const std::string& UserFileName, const std::string& delimiter);
+	
+
 };
 

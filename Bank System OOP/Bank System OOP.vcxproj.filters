@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Users Screens">
       <UniqueIdentifier>{dce9733c-b01e-4286-92c6-410946d23cf4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Login Screens">
+      <UniqueIdentifier>{e80c0945-d312-4869-81a3-9d660b836ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Login Screens">
+      <UniqueIdentifier>{115096a4-00cf-4e18-a941-0c6afeed32af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -117,6 +123,9 @@
     <ClCompile Include="clsFindUserScreen.cpp">
       <Filter>Source Files\Users Screens</Filter>
     </ClCompile>
+    <ClCompile Include="clsLogin.cpp">
+      <Filter>Source Files\Login Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\String Library\String Library\clsString.h">
@@ -187,6 +196,12 @@
     </ClInclude>
     <ClInclude Include="clsFindUserScreen.h">
       <Filter>Header Files\Users Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="clsLogin.h">
+      <Filter>Header Files\Login Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Header Files\Main Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

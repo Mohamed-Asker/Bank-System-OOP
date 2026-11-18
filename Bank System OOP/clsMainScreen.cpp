@@ -43,13 +43,9 @@ void clsMainScreen::_ShowManageUserScreen(const std::string& FileName, const std
 {
 	clsManageUserScreen::RunUserMenuScreen(FileName, delimiter);
 }
-
-
-//Public Methods:
-//Method(1);
-void clsMainScreen::ShowMainMenu()
+//Method(8);
+void clsMainScreen::_ShowMainMenu()
 {
-	clsScreen::_DrawScreenHeader("MAIN MENU");
 	std::cout << "[1]" << " Show Client List";
 	std::cout << "\n[2]" << " Add New Client";
 	std::cout << "\n[3]" << " Delete Client";
@@ -60,13 +56,13 @@ void clsMainScreen::ShowMainMenu()
 	std::cout << "\n[8]" << " Logout";
 	std::cout << "\n------------------------------------------\n";
 }
-//Method(2);
-clsMainScreen::enMainMenuOptions clsMainScreen::ReadMainMenuOption(short from, short to, const std::string& msg)
+//Method(9);
+clsMainScreen::enMainMenuOptions clsMainScreen::_ReadMainMenuOption()
 {
-	return enMainMenuOptions(clsInputValidate::ReadShortNumberBetween(msg , from, to));
+	return enMainMenuOptions(clsInputValidate::ReadShortNumberBetween("Choose What do you want to do[1 to 8]",1, 8));
 }
-//Method(3);
-bool clsMainScreen::PerformMainMenuOprtion(enMainMenuOptions UserChoose, const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter)
+//Method(10);
+bool clsMainScreen::_PerformMainMenuOprtion(enMainMenuOptions UserChoose, const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter)
 {
 	switch (UserChoose)
 	{
@@ -109,4 +105,19 @@ bool clsMainScreen::PerformMainMenuOprtion(enMainMenuOptions UserChoose, const s
 	default:
 		return true;
 	}
+}
+
+
+//Public Methods:
+//Method(1);
+void clsMainScreen::RunMainMenu(const std::string& ClientsFileName, const std::string& UserFileName, const std::string& delimiter)
+{
+	bool Logout;
+	do
+	{
+		clsUtil::ResetScreen();
+		clsScreen::_DrawScreenHeader("MAIN MENU SCREEN");
+		_ShowMainMenu();
+		Logout = _PerformMainMenuOprtion(_ReadMainMenuOption(), ClientsFileName, UserFileName, delimiter);
+	} while (Logout);
 }
