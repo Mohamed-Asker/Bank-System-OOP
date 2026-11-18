@@ -105,6 +105,9 @@
     <ClCompile Include="clsAddNewUserScreen.cpp">
       <Filter>Source Files\Users Screens</Filter>
     </ClCompile>
+    <ClCompile Include="clsUsersListScreen.cpp">
+      <Filter>Source Files\Users Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\String Library\String Library\clsString.h">
@@ -162,6 +165,9 @@
       <Filter>Header Files\Main Classes</Filter>
     </ClInclude>
     <ClInclude Include="clsAddNewUserScreen.h">
+      <Filter>Header Files\Users Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="clsUsersListScreen.h">
       <Filter>Header Files\Users Screens</Filter>
     </ClInclude>
   </ItemGroup>

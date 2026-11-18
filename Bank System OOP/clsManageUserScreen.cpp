@@ -61,7 +61,7 @@ clsManageUserScreen::enUserMenuOptions clsManageUserScreen::_ReadUserMenuOption(
 void clsManageUserScreen::_ShowUsersListScreen(const std::string& FileName, const std::string& delimiter)
 {
 	system("cls");
-	std::cout << "Users List Screen Will be here Soon...\n";
+	clsUsersListScreen::ShowUsersListScreen(FileName, delimiter);
 }
 //Method(5):
 void clsManageUserScreen::_ShowAddNewUserScreen(const std::string& FileName, const std::string& delimiter)
