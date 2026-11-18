@@ -79,7 +79,7 @@ void clsManageUserScreen::_ShowDeleteUserScreen(const std::string& FileName, con
 void clsManageUserScreen::_ShowUpdateUserScreen(const std::string& FileName, const std::string& delimiter)
 {
 	system("cls");
-	std::cout << "Update User Screen Will be here Soon...\n";
+	clsUpdateUserScreen::ShowUpdateUserScreen(FileName, delimiter);
 }
 //Method(8):
 void clsManageUserScreen::_ShowFindUserScreen(const std::string& FileName, const std::string& delimiter)
