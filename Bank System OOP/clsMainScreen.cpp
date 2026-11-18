@@ -41,14 +41,13 @@ void clsMainScreen::_ShowTransactionScreen(const std::string& FileName, const st
 //Method(7);
 void clsMainScreen::_ShowManageUserScreen(const std::string& FileName, const std::string& delimiter)
 {
-	clsUtil::ResetScreen();
 	clsManageUserScreen::RunUserMenuScreen(FileName, delimiter);
 }
 
 
 //Public Methods:
 //Method(1);
-void clsMainScreen::ShowMainMenu(const std::string& FileName, const std::string& delimiter)
+void clsMainScreen::ShowMainMenu()
 {
 	clsScreen::_DrawScreenHeader("MAIN MENU");
 	std::cout << "[1]" << " Show Client List";
@@ -67,41 +66,41 @@ clsMainScreen::enMainMenuOptions clsMainScreen::ReadMainMenuOption(short from, s
 	return enMainMenuOptions(clsInputValidate::ReadShortNumberBetween(msg , from, to));
 }
 //Method(3);
-bool clsMainScreen::PerformMainMenuOprtion(enMainMenuOptions UserChoose, const std::string& FileName, const std::string& delimiter)
+bool clsMainScreen::PerformMainMenuOprtion(enMainMenuOptions UserChoose, const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter)
 {
 	switch (UserChoose)
 	{
 	case enMainMenuOptions::ShowClientList:
-		_ShowClientListScreen(FileName, delimiter);
+		_ShowClientListScreen(ClientsFileName, delimiter);
 		clsUtil::PressAnyKey("Press any key to go back to main menu");
 		return true;
 
 	case enMainMenuOptions::AddNewClient:
-		_ShowAddNewClientScreen(FileName, delimiter);
+		_ShowAddNewClientScreen(ClientsFileName, delimiter);
 		clsUtil::PressAnyKey("Press any key to go back to main menu");
 		return true;
 
 	case enMainMenuOptions::DeleteClient:
-		_ShowDeleteClientScreen(FileName, delimiter);
+		_ShowDeleteClientScreen(ClientsFileName, delimiter);
 		clsUtil::PressAnyKey("Press any key to go back to main menu");
 		return true;
 
 	case enMainMenuOptions::UpdateClient:
-		_ShowUpdateClientScreen(FileName, delimiter);
+		_ShowUpdateClientScreen(ClientsFileName, delimiter);
 		clsUtil::PressAnyKey("Press any key to go back to main menu");
 		return true;
 
 	case enMainMenuOptions::FindClient:
-		_ShowFindClientScreen(FileName, delimiter);
+		_ShowFindClientScreen(ClientsFileName, delimiter);
 		clsUtil::PressAnyKey("Press any key to go back to main menu");
 		return true;
 
 	case enMainMenuOptions::Transactions:
-		_ShowTransactionScreen(FileName, delimiter);
+		_ShowTransactionScreen(ClientsFileName, delimiter);
 		return true;
 
 	case enMainMenuOptions::ManageUsers:
-		_ShowManageUserScreen(FileName, delimiter);
+		_ShowManageUserScreen(UsersFileName, delimiter);
 		return true;
 
 	case enMainMenuOptions::Exit:

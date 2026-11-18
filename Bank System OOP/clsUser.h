@@ -18,13 +18,6 @@ private:
 		_eUpdateMode = 2,
 		_eAddNewMode = 3
 	};
-	enum enSaveResult
-	{
-		svSuccessded = 1,
-		svFildEmptyObj = 2,
-		svFildUserExist = 3
-	};
-
 
 	//Private Data Members:
 	std::string _UserName;
@@ -77,6 +70,14 @@ public:
 	__declspec(property(get = getUserName, put = setUesrName)) std::string UserName;
 	__declspec(property(get = getPassword, put = setPassword))std::string Password;
 	__declspec(property(get = getPermissons, put = setPermissions))short Permissions;
+
+	//Public Enums;
+	enum enSaveResult
+	{
+		svSuccessded = 1,
+		svFildEmptyObj = 2,
+		svFildUserExist = 3
+	};
 
 	//Public Methods:
 	//Method(1):

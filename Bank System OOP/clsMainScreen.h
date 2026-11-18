@@ -51,10 +51,10 @@ public:
 
 	//Public Methods:
     //Method(1);
-	static void ShowMainMenu(const std::string& FileName, const std::string& delimiter);
+	static void ShowMainMenu();
 	//Method(2);
 	static enMainMenuOptions ReadMainMenuOption(short from, short to, const std::string& msg = "Choose what do you want to do");
 	//Method(3);
-	static bool PerformMainMenuOprtion(enMainMenuOptions UserChoose,const std::string& FileName, const std::string& delimiter);
+	static bool PerformMainMenuOprtion(enMainMenuOptions UserChoose,const std::string& ClientsFileName, const std::string& UsersFileName,const std::string& delimiter);
 };
 

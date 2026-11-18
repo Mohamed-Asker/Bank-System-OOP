@@ -67,7 +67,7 @@ void clsManageUserScreen::_ShowUsersListScreen(const std::string& FileName, cons
 void clsManageUserScreen::_ShowAddNewUserScreen(const std::string& FileName, const std::string& delimiter)
 {
 	system("cls");
-	std::cout << "Add New User Screen Will be here Soon...\n";
+	clsAddNewUserScreen::_ShowAddNewUserScreen(FileName, delimiter);
 }
 //Method(6):
 void clsManageUserScreen::_ShowDeleteUserScreen(const std::string& FileName, const std::string& delimiter)
