@@ -85,7 +85,7 @@ void clsManageUserScreen::_ShowUpdateUserScreen(const std::string& FileName, con
 void clsManageUserScreen::_ShowFindUserScreen(const std::string& FileName, const std::string& delimiter)
 {
 	system("cls");
-	std::cout << "Find User Screen Will be here Soon...\n";
+	clsFindUserScreen::ShowFindUserScreen(FileName, delimiter);
 }
 
 
