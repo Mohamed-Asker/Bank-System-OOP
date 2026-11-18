@@ -44,7 +44,7 @@ private:
 	//Method(8):
 	void _AddNewUser(const std::string& FileName, const std::string& delimiter);
 	//Method(9):
-	void _MarkToDelete(std::vector <clsUser>& vUsers, bool isUserDeleted);
+	void _MarkToDelete(std::vector <clsUser>& vUsers, bool& isUserDeleted);
 	
 public: 
 	//Constructors:
@@ -72,11 +72,24 @@ public:
 	__declspec(property(get = getPermissons, put = setPermissions))short Permissions;
 
 	//Public Enums;
+	//Enum(1):
 	enum enSaveResult
 	{
 		svSuccessded = 1,
 		svFildEmptyObj = 2,
 		svFildUserExist = 3
+	};
+	//Enum(2):
+	enum enPermissions
+	{
+		pShowClientList = 1,
+		pAddNewClient = 2,
+		pDeleteClient = 4,
+		pUpdateClient = 8,
+		pFindClient = 16,
+		pTransactions = 32,
+		pManageUsers = 64,
+		pAll = 127
 	};
 
 	//Public Methods:

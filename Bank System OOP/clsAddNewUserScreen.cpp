@@ -18,7 +18,7 @@ void clsAddNewUserScreen::_ReadUserInfoAddNew(clsUser& user)
 short clsAddNewUserScreen::_ReadPermissions()
 {
 	if (clsUtil::ConfirmAction("Do you want to give Full access"))
-		return 127;
+		return clsUser::enPermissions::pAll;
 
 	std::cout << "\n=-=-==-=-==-=-==-=-==-=-==-=-==-=-==-=-==-";
 	std::cout << "\n             USER PERMISSIONS";
@@ -30,37 +30,37 @@ short clsAddNewUserScreen::_ReadPermissions()
 		{
 		case 1:
 			if (clsUtil::ConfirmAction("Allow Show Clients"))
-				Permissions += 1;
+				Permissions += clsUser::enPermissions::pShowClientList;
 			break;
 
 		case 2:
 			if (clsUtil::ConfirmAction("Allow Add New Client"))
-				Permissions += 2;
+				Permissions += clsUser::enPermissions::pAddNewClient;
 				break;
 
 		case 3:
 			if (clsUtil::ConfirmAction("Allow Delete Client"))
-				Permissions += 4;
+				Permissions += clsUser::enPermissions::pDeleteClient;
 			break;
 
 		case 4:
 			if (clsUtil::ConfirmAction("Allow Update Client"))
-				Permissions += 8;
+				Permissions += clsUser::enPermissions::pUpdateClient;
 			break;
 
 		case 5:
 			if (clsUtil::ConfirmAction("Allow Find Client"))
-				Permissions += 16;
+				Permissions += clsUser::enPermissions::pFindClient;
 			break;
 
 		case 6:
 			if (clsUtil::ConfirmAction("Allow Transactions"))
-				Permissions += 32;
+				Permissions += clsUser::enPermissions::pTransactions;
 			break;
 
 		case 7:
 			if (clsUtil::ConfirmAction("Allow Manage Users"))
-				Permissions += 64;
+				Permissions += clsUser::enPermissions::pManageUsers;
 			break;
 
 		default:
@@ -127,7 +127,7 @@ void clsAddNewUserScreen::_ShowAddNewUserScreen(const std::string& FileName, con
 			clsScreen::_DrawScreenHeader("ADD NEW USER SCREEN");
 			break;
 		}
-		std::cout << "User with user name [" << UserName << "] is already exist\n\n";
+		std::cout << "User name is already exist, Choose another one.\n\n";
 	} while (true);
 
 	clsUser user = clsUser::getAddNewUserObj(UserName);

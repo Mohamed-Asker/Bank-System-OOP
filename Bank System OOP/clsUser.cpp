@@ -113,9 +113,8 @@ void clsUser::_SaveUsersDataToFile(std::vector<clsUser>& vUsers, const std::stri
 		{
 			if (tempUser.getEllipsis() == false)
 				file << _ConvertUserObjDataToLine(tempUser, delimiter) << std::endl;
-
-			file.close();
 		}
+		file.close();
 	}
 }
 //Method(6):
@@ -148,11 +147,11 @@ void clsUser::_AddNewUser(const std::string& FileName, const std::string& delimi
 	_AddUserDataToFile(FileName, delimiter);
 }
 //Method(9):
-void clsUser::_MarkToDelete(std::vector <clsUser>& vUsers, bool isUserDeleted)
+void clsUser::_MarkToDelete(std::vector <clsUser>& vUsers, bool& isUserDeleted)
 {
 	for (clsUser& tempUser : vUsers)
 	{
-		if (UserName == tempUser.UserName)
+		if (this->UserName == tempUser.UserName)
 		{
 			tempUser._MarkForDelete = true;
 			isUserDeleted = true;

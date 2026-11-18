@@ -3,6 +3,7 @@
 #include "clsScreen.h"
 #include "clsUsersListScreen.h"
 #include "clsAddNewUserScreen.h"
+#include "clsDeleteUserScreen.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 
