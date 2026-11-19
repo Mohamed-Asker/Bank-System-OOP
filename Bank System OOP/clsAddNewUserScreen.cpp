@@ -130,7 +130,7 @@ void clsAddNewUserScreen::_ShowAddNewUserScreen(const std::string& FileName, con
 		std::cout << "User name is already exist, Choose another one.\n\n";
 	} while (true);
 
-	clsUser user = clsUser::getAddNewUserObj(UserName);
+	clsUser user = clsUser::AddNewUserObj(UserName);
 	_ReadUserInfoAddNew(user);
 	_PrintSaveResult(user, FileName, delimiter);
 }

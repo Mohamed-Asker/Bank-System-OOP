@@ -3,7 +3,9 @@
 #include <string>
 #include <vector>
 #include "clsBankClient.h"
+#include "clsUser.h"
 #include "clsScreen.h"
+#include "Global.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 
 

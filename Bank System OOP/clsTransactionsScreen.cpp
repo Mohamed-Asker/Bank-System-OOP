@@ -65,6 +65,14 @@ void clsTransactionsScreen::_ShowTotalBalanceScreen(const std::string& FileName,
 //Method(1):
 void clsTransactionsScreen::RunTransactionsMenu(const std::string& FileName, const std::string& delimiter)
 {
+	if (!CurrentUser.HasPermission(clsUser::pTransactions))
+	{
+		clsUtil::ResetScreen();
+		clsScreen::_DrawScreenHeader("Access Denied! Please Contact your Admin.");
+		clsUtil::PressAnyKey("Press any key to go back to main menu");
+		return;
+	}
+
 	bool GoMainMenu = true;
 	do
 	{

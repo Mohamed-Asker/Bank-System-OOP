@@ -4,6 +4,8 @@
 #include "clsDepositScreen.h"
 #include "clsWithDrawScreen.h"
 #include "clsTotalBalaceScreen.h"
+#include "clsUser.h"
+#include "Global.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 

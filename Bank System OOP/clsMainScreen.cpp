@@ -35,7 +35,6 @@ void clsMainScreen::_ShowFindClientScreen(const std::string& FileName, const std
 //Method(6);
 void clsMainScreen::_ShowTransactionScreen(const std::string& FileName, const std::string& delimiter)
 {
-	clsUtil::ResetScreen();
 	clsTransactionsScreen::RunTransactionsMenu(FileName, delimiter);
 }
 //Method(7);
@@ -100,11 +99,17 @@ bool clsMainScreen::_PerformMainMenuOprtion(enMainMenuOptions UserChoose, const 
 		return true;
 
 	case enMainMenuOptions::Exit:
+		_Logout();
 		return false;
 
 	default:
 		return true;
 	}
+}
+//Method(11);
+void clsMainScreen::_Logout()
+{
+	CurrentUser.ClearUserObj();
 }
 
 

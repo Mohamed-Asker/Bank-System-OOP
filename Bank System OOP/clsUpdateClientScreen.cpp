@@ -58,6 +58,12 @@ void clsUpdateclientScreen::_PrintSaveResult(clsBankClient& client, const std::s
 //Method(1)
 void clsUpdateclientScreen::ShowUpdateClientScreen(const std::string& FileName, const std::string& delimiter)
 {
+	if (!::CurrentUser.HasPermission(clsUser::pUpdateClient))
+	{
+		clsScreen::_DrawScreenHeader("Access Denied! Please Conact Your admin.");
+		return;
+	}
+
 	std::string accNumber;
 	clsBankClient client;
 	clsScreen::_DrawScreenHeader("UPDATE CLIENT SC  REEN");

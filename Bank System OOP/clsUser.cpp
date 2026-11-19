@@ -5,7 +5,7 @@
 //Constructor(1):
 clsUser::clsUser() 
 {
-	*this = _getEmptyUserObj();
+	*this = _EmptyUserObj();
 }
 //Constructor(2):
 clsUser::clsUser(enMode Mode, const std::string& UserName, const std::string& Password, short Permissions, const std::string& FirstName, const std::string& LastName, const std::string& Email, const std::string& Phone) : clsPerson(FirstName, LastName, Email, Phone), _Mode(Mode), _UserName(UserName), _Password(Password), _Permission(Permissions) {}
@@ -65,7 +65,7 @@ bool clsUser::getEllipsis()
 
 //Private Methods:
 // //Method(1):
-clsUser clsUser::_getEmptyUserObj()
+clsUser clsUser::_EmptyUserObj()
 {
 	return clsUser(enMode::_eEmptyMode, "", "", 0, "", "", "", "");
 }
@@ -180,7 +180,7 @@ clsUser clsUser::FindUser(const std::string& UserName, const std::string& FileNa
 		}
 		file.close();
 	}
-	return _getEmptyUserObj();
+	return _EmptyUserObj();
 }
 //Method(2):
 clsUser clsUser::FindUser(const std::string& UserName, const std::string& Password, const std::string& FileName, const std::string& delimiter)
@@ -202,7 +202,7 @@ clsUser clsUser::FindUser(const std::string& UserName, const std::string& Passwo
 
 		file.close();
 	}
-	return _getEmptyUserObj();
+	return _EmptyUserObj();
 }
 //Method(3):
 bool clsUser::isUserExist(const std::string& UserName, const std::string& FileName, const std::string& delimiter, clsUser* UserPtr)
@@ -265,11 +265,11 @@ bool clsUser::DeleteUser(const std::string& FileName, const std::string& delimit
 	_MarkToDelete(vUsers, isUserDeleted);
 	_SaveUsersDataToFile(vUsers, FileName, delimiter);
 	if (isUserDeleted)
-		*this = _getEmptyUserObj();
+		*this = _EmptyUserObj();
 	return isUserDeleted;
 }
 //Method(6):
-clsUser clsUser::getAddNewUserObj(const std::string UserName)
+clsUser clsUser::AddNewUserObj(const std::string UserName)
 {
 	return clsUser(enMode::_eAddNewMode, UserName, "", 0, "", "", "", "");
 }
@@ -277,4 +277,14 @@ clsUser clsUser::getAddNewUserObj(const std::string UserName)
 std::vector <clsUser> clsUser::UsersList(const std::string& FileName, const std::string& delimiter)
 {
 	return _LoadUsersDataFromFile(FileName, delimiter);
+}
+//Method(8):
+void clsUser::ClearUserObj()
+{
+	*this = _EmptyUserObj();
+}
+//Method(9):
+bool clsUser::HasPermission(short RequiredPermission)
+{
+	return (Permissions & RequiredPermission) == RequiredPermission;
 }

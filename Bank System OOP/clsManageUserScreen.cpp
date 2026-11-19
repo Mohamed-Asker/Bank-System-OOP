@@ -93,10 +93,18 @@ void clsManageUserScreen::_ShowFindUserScreen(const std::string& FileName, const
 //Method(1):
 void clsManageUserScreen::RunUserMenuScreen(const std::string& FileName, const std::string& delimiter)
 {
+	if (!CurrentUser.HasPermission(clsUser::pManageUsers))
+	{
+		clsUtil::ResetScreen();
+		clsScreen::_DrawScreenHeader("Access Denied! Please Contact your Admin.");
+		clsUtil::PressAnyKey("Press any key to go back to main menu");
+		return;
+	}
+
 	bool GoMainMenu = true;
 	do
 	{
-		system("cls"); 
+		clsUtil::ResetScreen();
 		clsScreen::_DrawScreenHeader("MANAGE USERS SCREEN");
 		_ShowManageUserMenu();
 		GoMainMenu = _PerformUserMenuOption(_ReadUserMenuOption(), FileName, delimiter);

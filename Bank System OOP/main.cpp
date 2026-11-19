@@ -3,7 +3,10 @@
 
 int main()
 {
-	clsLogin::ShowLoginScreen("ClientDate.txt", "UsersData.txt", "#//#");
+	while (true)
+	{
+		clsLogin::ShowLoginScreen("ClientDate.txt", "UsersData.txt", "#//#");
+	}
 	
 	return 0;
 }

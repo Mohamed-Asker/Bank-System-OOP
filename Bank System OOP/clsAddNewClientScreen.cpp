@@ -55,6 +55,12 @@ void clsAddNewClientScreen::_ReadClientInfo(clsBankClient& client)
 //Method(1):
 void clsAddNewClientScreen::ShowAddNewClientScreen(const std::string& FileName, const std::string& delimiter)
 {
+	if (!::CurrentUser.HasPermission(clsUser::pAddNewClient))
+	{
+		clsScreen::_DrawScreenHeader("Access Denied! Please Conact Your admin.");
+		return;
+	}
+
 	clsScreen::_DrawScreenHeader("ADD NEW CLIENT SCREEN");
 	std::string accNumber;
 	do

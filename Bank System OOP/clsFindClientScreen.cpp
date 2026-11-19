@@ -25,6 +25,12 @@ void clsFindClientScreen::_PrintClientInfo(clsBankClient& client)
 //Method(1):
 void clsFindClientScreen::ShowFindClientScreen(const std::string& FileName, const std::string& delimiter)
 {
+	if (!::CurrentUser.HasPermission(clsUser::pFindClient))
+	{
+		clsScreen::_DrawScreenHeader("Access Denied! Please Conact Your admin.");
+		return;
+	}
+
 	std::string accNumber;
 	clsBankClient client;
 	clsScreen::_DrawScreenHeader("FIND CLIENT SCREEN");

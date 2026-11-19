@@ -23,6 +23,12 @@ void clsDeleteClientScreen::_PrintClientInfo(clsBankClient& client)
 //Method(1):
 void clsDeleteClientScreen::ShowDeleteClientScreen(const std::string& FileName, const std::string& delimiter)
 {
+	if (!::CurrentUser.HasPermission(clsUser::pDeleteClient))
+	{
+		clsScreen::_DrawScreenHeader("Access Denied! Please Conact Your admin.");
+		return;
+	}
+
 	std::string accNumber;
 	clsBankClient client;
 	clsScreen::_DrawScreenHeader("DELETE CLIENT SCREEN");

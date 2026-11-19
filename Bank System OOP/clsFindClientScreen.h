@@ -2,6 +2,8 @@
 #include <iostream>
 #include "clsScreen.h"
 #include "clsBankClient.h"
+#include "clsUser.h"
+#include "Global.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 
 

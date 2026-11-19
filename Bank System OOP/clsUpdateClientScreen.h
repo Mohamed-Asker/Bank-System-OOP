@@ -3,6 +3,8 @@
 #include <string>
 #include "clsBankClient.h"
 #include "clsScreen.h"
+#include "clsUser.h"
+#include "Global.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 

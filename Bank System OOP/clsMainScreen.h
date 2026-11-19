@@ -9,6 +9,7 @@
 #include "clsFindClientScreen.h"
 #include "clsTransactionsScreen.h"
 #include "clsManageUserScreen.h"
+#include "Global.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 
@@ -51,6 +52,8 @@ private:
 	static enMainMenuOptions _ReadMainMenuOption();
 	//Method(10);
 	static bool _PerformMainMenuOprtion(enMainMenuOptions UserChoose,const std::string& ClientsFileName, const std::string& UsersFileName,const std::string& delimiter);
+	//Method(11);
+	static void _Logout();
 
 public:
 

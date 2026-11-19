@@ -27,6 +27,12 @@ void
 //Method(1):
 void clsClientScreenList::ShowClientListScreen(const std::string& FileName, const std::string& delimiter)
 {
+	if (!::CurrentUser.HasPermission(clsUser::pShowClientList))
+	{
+		clsScreen::_DrawScreenHeader("Access Denied! Please Conact Your admin.");
+		return;
+	}
+
 	std::vector <clsBankClient> vClients = clsBankClient::ClientsList(FileName, delimiter);
 	short NumberOfClients = vClients.size();
 	clsScreen::_DrawScreenHeader("CLIENTS LIST SCREEN","(" + std::to_string(NumberOfClients) + ") CLIENT" + clsUtil::FormWord(NumberOfClients, false),38);

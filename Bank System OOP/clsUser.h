@@ -28,7 +28,7 @@ private:
 
 	//Private Methods:
 	//Method(1):
-	static clsUser _getEmptyUserObj();
+	static clsUser _EmptyUserObj();
 	//Method(2):
 	static clsUser _ConvertUserLineDateToUserObj(std::string& line, const std::string& delimiter);
 	//Method(3):
@@ -106,8 +106,13 @@ public:
 	//Method(5):
 	bool DeleteUser(const std::string& FileName, const std::string& delimiter);
 	//Method(6):
-	static clsUser getAddNewUserObj(const std::string UserName);
+	static clsUser AddNewUserObj(const std::string UserName);
 	//Method(7):
 	static std::vector <clsUser> UsersList(const std::string& FileName, const std::string& delimiter);
+	//Method(8):
+	void ClearUserObj();
+	//Method(9):
+	bool HasPermission(short Permission);
+
 };
 
