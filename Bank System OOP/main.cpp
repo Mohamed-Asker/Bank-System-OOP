@@ -3,10 +3,9 @@
 
 int main()
 {
-	while (true)
-	{
-		clsLogin::ShowLoginScreen("ClientDate.txt", "UsersData.txt", "#//#");
-	}
+	for (short trail = 3; trail >=1 ; trail--)
+		if (!clsLogin::ShowLoginScreen("ClientDate.txt", "UsersData.txt", "#//#"))
+			break;
 	
 	return 0;
 }
