@@ -159,6 +159,18 @@ void clsUser::_MarkToDelete(std::vector <clsUser>& vUsers, bool& isUserDeleted)
 		}
 	}
 }
+//Method(10):
+std::string clsUser::_PrepareLoginRecord(const std::string& delimiter)
+{
+	std::string LoginRecord;
+
+	//Prepare Login Record.
+	LoginRecord = clsDate::SystemDateString() + delimiter;
+	LoginRecord += UserName + delimiter;
+	LoginRecord += Password + delimiter;
+	LoginRecord += std::to_string(Permissions);
+	return LoginRecord;
+}
 
 
 //Public Methods:
@@ -287,4 +299,14 @@ void clsUser::ClearUserObj()
 bool clsUser::HasPermission(short RequiredPermission)
 {
 	return (Permissions & RequiredPermission) == RequiredPermission;
+}
+//Method(10):
+void clsUser::RegisterLogin(const std::string& LoginFile, const std::string& delimiter)
+{
+	std::fstream file(LoginFile, std::ios::out | std::ios::app);
+	if (file.is_open())
+	{
+		file << _PrepareLoginRecord(delimiter) << std::endl;
+		file.close();
+	}
 }

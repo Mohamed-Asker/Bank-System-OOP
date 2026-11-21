@@ -12,12 +12,11 @@ class clsLogin : protected clsScreen
 private:
 	//Private Methods:
 	// Method(1):
-	static bool _login(const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter);
-
+	static bool _login(const std::string& LoginFile, const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter);
 
 public:
 	//Public Methods:
 	// Method(1):
-	static bool ShowLoginScreen(const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter);
+	static bool ShowLoginScreen(const std::string& LoginFile, const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter);
 
 };

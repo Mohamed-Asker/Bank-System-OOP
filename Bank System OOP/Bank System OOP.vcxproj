@@ -139,6 +139,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Date Library\Date Library\clsDate.cpp" />
     <ClCompile Include="..\..\Input Validate Library\Input Validate Library\clsInputValidate.cpp" />
     <ClCompile Include="..\..\String Library\String Library\clsString.cpp" />
     <ClCompile Include="..\..\Utility Library\Utility Library\clsUtil.cpp" />
@@ -166,6 +167,7 @@
     <ClCompile Include="clsPerson.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Date Library\Date Library\clsDate.h" />
     <ClInclude Include="..\..\Input Validate Library\Input Validate Library\clsInputValidate.h" />
     <ClInclude Include="..\..\String Library\String Library\clsString.h" />
     <ClInclude Include="..\..\Utility Library\Utility Library\clsUtil.h" />

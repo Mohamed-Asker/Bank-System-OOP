@@ -5,7 +5,7 @@
 
 //Private Method:
 // Method(1):
-bool clsLogin::_login(const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter)
+bool clsLogin::_login(const std::string& LoginFile, const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter)
 {
 	bool isLoginFaild = false;
 	short LoginFialdCount = 0;
@@ -39,16 +39,17 @@ bool clsLogin::_login(const std::string& ClientsFileName, const std::string& Use
 		isLoginFaild = CurrentUser.isEmpty();
 
 	} while (isLoginFaild);
-	//This Function Will Take you to Main Menu.
+	//Save Login to Login Register File.
+	CurrentUser.RegisterLogin(LoginFile, delimiter);
 	clsMainScreen::RunMainMenu(ClientsFileName, UsersFileName, delimiter);
+	return true;
 }
-
 
 //Public Methods:
 // Method(1):
-bool clsLogin::ShowLoginScreen(const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter)
+bool clsLogin::ShowLoginScreen(const std::string& LoginFile, const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter)
 {
 	system("cls");
 	clsScreen::_DrawScreenHeader("LOGIN SCREEN");
-	return _login(ClientsFileName, UsersFileName, delimiter);
+	return _login(LoginFile, ClientsFileName, UsersFileName, delimiter);
 }

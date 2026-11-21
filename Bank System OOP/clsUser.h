@@ -5,6 +5,7 @@
 #include <vector>
 #include "clsPerson.h"
 #include "../../String Library/String Library/clsString.h"
+#include "../../Date Library/Date Library/clsDate.h"
 
 
 
@@ -45,6 +46,8 @@ private:
 	void _AddNewUser(const std::string& FileName, const std::string& delimiter);
 	//Method(9):
 	void _MarkToDelete(std::vector <clsUser>& vUsers, bool& isUserDeleted);
+	//Method(10):
+	std::string _PrepareLoginRecord(const std::string& delimiter);
 	
 public: 
 	//Constructors:
@@ -113,6 +116,8 @@ public:
 	void ClearUserObj();
 	//Method(9):
 	bool HasPermission(short Permission);
+	//Method(10):
+	void RegisterLogin(const std::string& LoginFile, const std::string& delimiter);
 
 };
 

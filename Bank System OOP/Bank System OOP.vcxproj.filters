@@ -126,6 +126,9 @@
     <ClCompile Include="clsLogin.cpp">
       <Filter>Source Files\Login Screens</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Date Library\Date Library\clsDate.cpp">
+      <Filter>Source Files\Helper Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\String Library\String Library\clsString.h">
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="Global.h">
       <Filter>Header Files\Main Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Date Library\Date Library\clsDate.h">
+      <Filter>Header Files\Helper Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
