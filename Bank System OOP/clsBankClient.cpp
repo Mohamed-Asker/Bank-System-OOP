@@ -284,3 +284,26 @@ bool clsBankClient::Withdraw(double Amount, const std::string& FileName, const s
 	Balance -= Amount;
 	return Save(AccountNumber(), FileName, delimiter) == enSaveResult::svSucceeded;
 }
+//Method (14):
+bool clsBankClient::Trnasfer(double TransferAmount, clsBankClient& DestinationClient, const std::string& FileName, const std::string& delimiter)
+{
+	if (AccountNumber() == DestinationClient.AccountNumber())
+		return false;
+
+	if (TransferAmount > Balance)
+		return false;
+
+	if (Withdraw(TransferAmount, FileName, delimiter))
+	{
+		if (DestinationClient.Deposit(TransferAmount, FileName, delimiter))
+			return true;
+		else
+		{
+			//This Will happen if the Deposit function returnd false.
+			Deposit(TransferAmount, FileName, delimiter);
+			return false;
+		}
+	}
+	else
+		return false;
+}

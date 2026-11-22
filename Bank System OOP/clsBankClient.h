@@ -106,4 +106,6 @@ public:
 	bool Deposit(double Amount, const std::string& FileName, const std::string& delimiter);
 	//Method (13):
 	bool Withdraw(double Amount, const std::string& FileName, const std::string& delimiter);
+	//Method (14):
+	bool Trnasfer(double TransferAmount, clsBankClient& DestinationClient, const std::string& FileName, const std::string& delimiter);
 }; 

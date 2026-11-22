@@ -4,6 +4,7 @@
 #include "clsDepositScreen.h"
 #include "clsWithDrawScreen.h"
 #include "clsTotalBalaceScreen.h"
+#include "clsTransferScreen.h"
 #include "clsUser.h"
 #include "Global.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
@@ -20,7 +21,8 @@ private:
 		tDeposit = 1,
 		tWithdraw = 2,
 		tTotalBalance = 3,
-		tMainMenu = 4
+		tTransfer = 4,
+		tMainMenu = 5
 	};
 
 	//Private Methods:
@@ -36,6 +38,8 @@ private:
 	static void _ShowWithdrawScreen(const std::string& FileName, const std::string& delimiter);
 	//Method(6):
 	static void _ShowTotalBalanceScreen(const std::string& FileName, const std::string& delimiter);
+	//Method(7):
+	static void _ShowTransferScreen(const std::string& FileName, const std::string& delimiter);
 
 public: 
 
