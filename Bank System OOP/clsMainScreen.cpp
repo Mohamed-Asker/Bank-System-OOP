@@ -43,25 +43,32 @@ void clsMainScreen::_ShowManageUserScreen(const std::string& FileName, const std
 	clsManageUserScreen::RunUserMenuScreen(FileName, delimiter);
 }
 //Method(8);
-void clsMainScreen::_ShowMainMenu()
+void clsMainScreen::_ShowRegisterLoginScreen(const std::string& FileName, const std::string& delimiter)
 {
-	std::cout << "[1]" << " Show Client List";
-	std::cout << "\n[2]" << " Add New Client";
-	std::cout << "\n[3]" << " Delete Client";
-	std::cout << "\n[4]" << " Update Client Info";
-	std::cout << "\n[5]" << " Find Client";
-	std::cout << "\n[6]" << " Transaction Menu";
-	std::cout << "\n[7]" << " Manage Users";
-	std::cout << "\n[8]" << " Logout";
-	std::cout << "\n------------------------------------------\n";
+	clsUtil::ResetScreen();
+	clsRegisterLoginScreen::ShowRegisterLoginScreen(FileName, delimiter);
 }
 //Method(9);
-clsMainScreen::enMainMenuOptions clsMainScreen::_ReadMainMenuOption()
+void clsMainScreen::_ShowMainMenu()
 {
-	return enMainMenuOptions(clsInputValidate::ReadShortNumberBetween("Choose What do you want to do[1 to 8]",1, 8));
+	std::cout << "[1] Show Client List";
+	std::cout << "\n[2] Add New Client";
+	std::cout << "\n[3] Delete Client";
+	std::cout << "\n[4] Update Client Info";
+	std::cout << "\n[5] Find Client";
+	std::cout << "\n[6] Transaction Menu";
+	std::cout << "\n[7] Manage Users";
+	std::cout << "\n[8] Register Login";
+	std::cout << "\n[9] Logout";
+	std::cout << "\n------------------------------------------\n";
 }
 //Method(10);
-bool clsMainScreen::_PerformMainMenuOprtion(enMainMenuOptions UserChoose, const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& delimiter)
+clsMainScreen::enMainMenuOptions clsMainScreen::_ReadMainMenuOption()
+{
+	return enMainMenuOptions(clsInputValidate::ReadShortNumberBetween("Choose What do you want to do[1 to 9]",1, 9));
+}
+//Method(11);
+bool clsMainScreen::_PerformMainMenuOprtion(enMainMenuOptions UserChoose, const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& LoginFile, const std::string& delimiter)
 {
 	switch (UserChoose)
 	{
@@ -98,6 +105,11 @@ bool clsMainScreen::_PerformMainMenuOprtion(enMainMenuOptions UserChoose, const 
 		_ShowManageUserScreen(UsersFileName, delimiter);
 		return true;
 
+	case enMainMenuOptions::RegisterLogin:
+		_ShowRegisterLoginScreen(LoginFile, delimiter);
+		clsUtil::PressAnyKey("Press any key to go back to main menu");
+		return true;
+
 	case enMainMenuOptions::Exit:
 		_Logout();
 		return false;
@@ -106,7 +118,7 @@ bool clsMainScreen::_PerformMainMenuOprtion(enMainMenuOptions UserChoose, const 
 		return true;
 	}
 }
-//Method(11);
+//Method(12);
 void clsMainScreen::_Logout()
 {
 	CurrentUser.ClearUserObj();
@@ -115,7 +127,7 @@ void clsMainScreen::_Logout()
 
 //Public Methods:
 //Method(1);
-void clsMainScreen::RunMainMenu(const std::string& ClientsFileName, const std::string& UserFileName, const std::string& delimiter)
+void clsMainScreen::RunMainMenu(const std::string& ClientsFileName, const std::string& UserFileName, const std::string& LoginFile, const std::string& delimiter)
 {
 	bool Logout;
 	do
@@ -123,6 +135,6 @@ void clsMainScreen::RunMainMenu(const std::string& ClientsFileName, const std::s
 		clsUtil::ResetScreen();
 		clsScreen::_DrawScreenHeader("MAIN MENU SCREEN");
 		_ShowMainMenu();
-		Logout = _PerformMainMenuOprtion(_ReadMainMenuOption(), ClientsFileName, UserFileName, delimiter);
+		Logout = _PerformMainMenuOprtion(_ReadMainMenuOption(), ClientsFileName, UserFileName, LoginFile, delimiter);
 	} while (Logout);
 }

@@ -155,6 +155,7 @@
     <ClCompile Include="clsLogin.cpp" />
     <ClCompile Include="clsMainScreen.cpp" />
     <ClCompile Include="clsManageUserScreen.cpp" />
+    <ClCompile Include="clsRegisterLoginScreen.cpp" />
     <ClCompile Include="clsScreen.cpp" />
     <ClCompile Include="clsTotalBalaceScreen.cpp" />
     <ClCompile Include="clsTransactionsScreen.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="clsMainScreen.h" />
     <ClInclude Include="clsManageUserScreen.h" />
     <ClInclude Include="clsPerson.h" />
+    <ClInclude Include="clsRegisterLoginScreen.h" />
     <ClInclude Include="clsScreen.h" />
     <ClInclude Include="clsTotalBalaceScreen.h" />
     <ClInclude Include="clsTransactionsScreen.h" />

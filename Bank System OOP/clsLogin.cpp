@@ -41,7 +41,7 @@ bool clsLogin::_login(const std::string& LoginFile, const std::string& ClientsFi
 	} while (isLoginFaild);
 	//Save Login to Login Register File.
 	CurrentUser.RegisterLogin(LoginFile, delimiter);
-	clsMainScreen::RunMainMenu(ClientsFileName, UsersFileName, delimiter);
+	clsMainScreen::RunMainMenu(ClientsFileName, UsersFileName, LoginFile, delimiter);
 	return true;
 }
 

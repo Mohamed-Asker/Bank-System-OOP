@@ -9,6 +9,7 @@
 #include "clsFindClientScreen.h"
 #include "clsTransactionsScreen.h"
 #include "clsManageUserScreen.h"
+#include "clsRegisterLoginScreen.h"
 #include "Global.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
@@ -27,7 +28,8 @@ private:
 		FindClient = 5,
 		Transactions = 6,
 		ManageUsers = 7,
-		Exit = 8
+		RegisterLogin = 8,
+		Exit = 9
 	};
 
 
@@ -47,19 +49,21 @@ private:
 	//Method(7);
 	static void _ShowManageUserScreen(const std::string& FileName, const std::string& delimiter);
 	//Method(8);
-	static void _ShowMainMenu();
+	static void _ShowRegisterLoginScreen(const std::string& FileName, const std::string& delimiter);
 	//Method(9);
-	static enMainMenuOptions _ReadMainMenuOption();
+	static void _ShowMainMenu();
 	//Method(10);
-	static bool _PerformMainMenuOprtion(enMainMenuOptions UserChoose,const std::string& ClientsFileName, const std::string& UsersFileName,const std::string& delimiter);
+	static enMainMenuOptions _ReadMainMenuOption();
 	//Method(11);
+	static bool _PerformMainMenuOprtion(enMainMenuOptions UserChoose, const std::string& ClientsFileName, const std::string& LoginFile, const std::string& UsersFileName, const std::string& delimiter);
+	//Method(12);
 	static void _Logout();
 
 public:
 
 	//Public Methods:
     //Method(1);
-	static void RunMainMenu(const std::string& ClientsFileName, const std::string& UserFileName, const std::string& delimiter);
+	static void RunMainMenu(const std::string& ClientsFileName, const std::string& UserFileName, const std::string& LoginFile, const std::string& delimiter);
 	
 
 };

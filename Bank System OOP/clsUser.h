@@ -27,6 +27,8 @@ private:
 	short _Permission;
 	bool _MarkForDelete = false;
 
+	
+
 	//Private Methods:
 	//Method(1):
 	static clsUser _EmptyUserObj();
@@ -41,7 +43,7 @@ private:
 	//Method(6):
 	void _Update(const std::string& FileName, const std::string& delimiter);
 	//Method(7):
-	void _AddUserDataToFile(const std::string& FileName, const std::string& delimiter);
+	void _AddDataLineToFile(const std::string& FileName, const std::string& LineData);
 	//Method(8):
 	void _AddNewUser(const std::string& FileName, const std::string& delimiter);
 	//Method(9):
@@ -74,6 +76,16 @@ public:
 	__declspec(property(get = getPassword, put = setPassword))std::string Password;
 	__declspec(property(get = getPermissons, put = setPermissions))short Permissions;
 
+	//Public Structure..
+	//Structure.
+	struct stLoginRegisterRecord
+	{
+		std::string DateAndTime = "";
+		std::string UserName = "";
+		std::string Password = "";
+		short Permissions = 0;
+	};
+
 	//Public Enums;
 	//Enum(1):
 	enum enSaveResult
@@ -92,7 +104,8 @@ public:
 		pFindClient = 16,
 		pTransactions = 32,
 		pManageUsers = 64,
-		pAll = 127
+		pLoginRegister = 128,
+		pAll = 255
 	};
 
 	//Public Methods:
@@ -118,6 +131,8 @@ public:
 	bool HasPermission(short Permission);
 	//Method(10):
 	void RegisterLogin(const std::string& LoginFile, const std::string& delimiter);
-
+	//Method(11):
+	static stLoginRegisterRecord _ConvertLoginRegisterLineToRecord(std::string& line, const std::string& delimiter);
+	//Method(12):
+	static std::vector <stLoginRegisterRecord> LoginRegisterList(const std::string& FileName, const std::string& delimiter);
 };
-

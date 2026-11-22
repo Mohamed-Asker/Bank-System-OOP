@@ -38,7 +38,7 @@ short clsUpdateUserScreen::_ReadPermissionsUpdateScreen()
 	std::cout << "\n             USER PERMISSIONS";
 	std::cout << "\n=-=-==-=-==-=-==-=-==-=-==-=-==-=-==-=-==-\n";
 	short Permissions = 0;
-	for (short i = 1; i <= 7; i++)
+	for (short i = 1; i <= 8; i++)
 	{
 		switch (i)
 		{
@@ -75,6 +75,11 @@ short clsUpdateUserScreen::_ReadPermissionsUpdateScreen()
 		case 7:
 			if (clsUtil::ConfirmAction("Allow Manage Users"))
 				Permissions += clsUser::enPermissions::pManageUsers;
+			break;
+
+		case 8:
+			if (clsUtil::ConfirmAction("Allow Login Register"))
+				Permissions += clsUser::enPermissions::pLoginRegister;
 			break;
 
 		default:

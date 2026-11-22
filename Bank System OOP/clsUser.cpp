@@ -132,19 +132,19 @@ void clsUser::_Update(const std::string& FileName, const std::string& delimiter)
 	_SaveUsersDataToFile(vUsers, FileName, delimiter);
 }
 //Method(7):
-void clsUser::_AddUserDataToFile(const std::string& FileName, const std::string& delimiter)
+void clsUser::_AddDataLineToFile(const std::string& FileName,const std::string& LineData)
 {
 	std::fstream file(FileName, std::ios::out | std::ios::app);
 	if (file.is_open())
 	{
-		file << _ConvertUserObjDataToLine(*this, delimiter) << std::endl;
+		file << LineData << std::endl;
 		file.close();
 	}
 }
 //Method(8):
 void clsUser::_AddNewUser(const std::string& FileName, const std::string& delimiter)
 {
-	_AddUserDataToFile(FileName, delimiter);
+	_AddDataLineToFile(FileName, _ConvertUserObjDataToLine(*this, delimiter));
 }
 //Method(9):
 void clsUser::_MarkToDelete(std::vector <clsUser>& vUsers, bool& isUserDeleted)
@@ -304,9 +304,33 @@ bool clsUser::HasPermission(short RequiredPermission)
 void clsUser::RegisterLogin(const std::string& LoginFile, const std::string& delimiter)
 {
 	std::fstream file(LoginFile, std::ios::out | std::ios::app);
+	_AddDataLineToFile(LoginFile, _PrepareLoginRecord(delimiter));
+}
+//Method(11):
+clsUser::stLoginRegisterRecord clsUser::_ConvertLoginRegisterLineToRecord(std::string& line, const std::string& delimiter)
+{
+	std::vector <std::string> vLoginRegisterDataLine = clsString::split(line, delimiter);
+
+	//Convert Login Register Data To Record.
+	stLoginRegisterRecord LoginRegisterRecord;
+	LoginRegisterRecord.DateAndTime = vLoginRegisterDataLine[0];
+	LoginRegisterRecord.UserName = vLoginRegisterDataLine[1];
+	LoginRegisterRecord.Password = vLoginRegisterDataLine[2];
+	LoginRegisterRecord.Permissions = std::stoi(vLoginRegisterDataLine[3]);
+	return LoginRegisterRecord;
+}
+//Method(12):
+std::vector <clsUser::stLoginRegisterRecord> clsUser::LoginRegisterList(const std::string& FileName, const std::string& delimiter)
+{
+	std::fstream file(FileName, std::ios::in);
+	std::vector <stLoginRegisterRecord> vLoginRegisterRecord;
 	if (file.is_open())
 	{
-		file << _PrepareLoginRecord(delimiter) << std::endl;
+		std::string line;
+		while (std::getline(file, line))
+			vLoginRegisterRecord.push_back(_ConvertLoginRegisterLineToRecord(line, delimiter));
+
 		file.close();
 	}
+	return vLoginRegisterRecord;
 }
