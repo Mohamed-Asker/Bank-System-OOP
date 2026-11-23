@@ -132,7 +132,7 @@ public:
 	//Method(10):
 	void RegisterLogin(const std::string& LoginFile, const std::string& delimiter);
 	//Method(11):
-	static stLoginRegisterRecord _ConvertLoginRegisterLineToRecord(std::string& line, const std::string& delimiter);
+	static stLoginRegisterRecord ConvertLoginRegisterLineToRecord(std::string& line, const std::string& delimiter);
 	//Method(12):
 	static std::vector <stLoginRegisterRecord> LoginRegisterList(const std::string& FileName, const std::string& delimiter);
 };

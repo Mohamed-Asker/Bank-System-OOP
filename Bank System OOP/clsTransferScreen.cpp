@@ -71,7 +71,7 @@ void clsTransferScreen::ShowTransferScreen(const std::string& FileName, const st
 	//Print result of tranfer.
 	if (clsUtil::ConfirmAction("Are you sure you want to perform this operation"))
 	{
-		if (SourceClient.Trnasfer(TransferAmount, DestinationClient, FileName, delimiter))
+		if (SourceClient.Trnasfer(TransferAmount, DestinationClient, FileName, delimiter,::CurrentUser.UserName))
 			std::cout << "Transfer done successfully\n\n";
 		else
 			std::cout << "Transfer Faild\n\n";

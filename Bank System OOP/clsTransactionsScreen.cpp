@@ -10,7 +10,8 @@ void clsTransactionsScreen::_ShowTransactionsMenuScreen()
 	std::cout << "\n[2] Withdraw.";
 	std::cout << "\n[3] Total Balance.";
 	std::cout << "\n[4] Transfer.";
-	std::cout << "\n[5] Main Menue.";
+	std::cout << "\n[5] Transfer Log.";
+	std::cout << "\n[6] Main Menue.";
 	std::cout << "\n----------------------------------------\n";
 }
 //Method(2):
@@ -43,6 +44,11 @@ bool clsTransactionsScreen::_PerformTransactionMenuOption(enTransactionsMenuOpti
 		clsUtil::PressAnyKey("Press any key to go back to transaction menu");
 		return true;
 
+	case enTransactionsMenuOptions::tTransferLog:
+		_ShowTransferLogScreen();
+		clsUtil::PressAnyKey("Press any key to go back to transaction menu");
+		return true;
+
 	case enTransactionsMenuOptions::tMainMenu:
 		return false;
 	}
@@ -71,6 +77,12 @@ void clsTransactionsScreen::_ShowTransferScreen(const std::string& FileName, con
 	clsUtil::ResetScreen();
 	clsTransferScreen::ShowTransferScreen(FileName, delimiter);
 }
+//Method(8):
+void clsTransactionsScreen::_ShowTransferLogScreen()
+{
+	clsUtil::ResetScreen();
+	clsTransferLogScreen::ShowTransferLogScreen();
+}
 
 
 //Public Methods:
@@ -91,6 +103,6 @@ void clsTransactionsScreen::RunTransactionsMenu(const std::string& FileName, con
 		clsUtil::ResetScreen();
 		clsScreen::_DrawScreenHeader("TRANSACTIONS SCREEN");
 		_ShowTransactionsMenuScreen();
-		GoMainMenu = _PerformTransactionMenuOption(_ReadTransactionsMenuOptions("Enter transaction type from 1 to 5", 1, 5), FileName, delimiter);
+		GoMainMenu = _PerformTransactionMenuOption(_ReadTransactionsMenuOptions("Enter transaction type from 1 to 6", 1, 6), FileName, delimiter);
 	} while (GoMainMenu);
 }

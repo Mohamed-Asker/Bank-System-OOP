@@ -159,6 +159,7 @@
     <ClCompile Include="clsScreen.cpp" />
     <ClCompile Include="clsTotalBalaceScreen.cpp" />
     <ClCompile Include="clsTransactionsScreen.cpp" />
+    <ClCompile Include="clsTransferLogScreen.cpp" />
     <ClCompile Include="clsTransferScreen.cpp" />
     <ClCompile Include="clsUpdateClientScreen.cpp" />
     <ClCompile Include="clsUpdateUserScreen.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="clsScreen.h" />
     <ClInclude Include="clsTotalBalaceScreen.h" />
     <ClInclude Include="clsTransactionsScreen.h" />
+    <ClInclude Include="clsTransferLogScreen.h" />
     <ClInclude Include="clsTransferScreen.h" />
     <ClInclude Include="clsUpdateClientScreen.h" />
     <ClInclude Include="clsUpdateUserScreen.h" />

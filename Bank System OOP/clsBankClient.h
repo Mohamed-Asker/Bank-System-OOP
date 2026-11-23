@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include "clsPerson.h"
+#include "Global.h"
 #include "../../String Library/String Library/clsString.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 
@@ -27,6 +28,9 @@ private:
 	double _accBalance;
 	bool _MarkForDelete = false;
 
+	//Declaration:
+	struct stTransferLogRecord;
+
 	//Private Methods.
 	//Method (1):
 	static clsBankClient _ConvertLineDataToClientObject(std::string& line, const std::string& delimiter);
@@ -46,6 +50,12 @@ private:
 	void _Update(const std::string& FileName, const std::string& delimiter);
 	//Method (9):
 	void _MarkToDelete(std::vector <clsBankClient>& vClients, bool& isClientDeleted);
+	//Method (10):
+	std::string _PerpareTransferLogDataLine(double TransferAmount, clsBankClient& DestinationClient, const std::string& UserName);
+	//Method (11):
+	void _RegisterTransferLog(double TransferAmount, clsBankClient& DestinationClient, const std::string& UserName);
+	//Method (12):
+	static stTransferLogRecord _ConvertTransferLogLineDataToRecord(std::string& line);
 
 
 
@@ -79,6 +89,18 @@ public:
 		svFildAccountNumberExist = 3
 	};
 
+	//Structure:
+	struct stTransferLogRecord
+	{
+		std::string DateAndTime = "";
+		std::string SourecAccNumber = "";
+		std::string DestinationAccNumber = "";
+		double TransferAmount = 0;
+		double SourecBalance = 0;
+		double DestinationBalance = 0;
+		std::string UserName = "";
+	};
+
 	//Public Methods.
 	//Method (1):
 	
@@ -107,5 +129,8 @@ public:
 	//Method (13):
 	bool Withdraw(double Amount, const std::string& FileName, const std::string& delimiter);
 	//Method (14):
-	bool Trnasfer(double TransferAmount, clsBankClient& DestinationClient, const std::string& FileName, const std::string& delimiter);
+	bool Trnasfer(double TransferAmount, clsBankClient& DestinationClient, const std::string& FileName, const std::string& delimiter, const std::string& UserName);
+	//Method (16):
+	static std::vector <stTransferLogRecord> TransferLogList();
+	
 }; 

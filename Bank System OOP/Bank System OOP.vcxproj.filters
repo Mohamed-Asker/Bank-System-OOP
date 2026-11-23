@@ -135,6 +135,9 @@
     <ClCompile Include="clsTransferScreen.cpp">
       <Filter>Source Files\Transactions Menu Screens</Filter>
     </ClCompile>
+    <ClCompile Include="clsTransferLogScreen.cpp">
+      <Filter>Source Files\Transactions Menu Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\String Library\String Library\clsString.h">
@@ -219,6 +222,9 @@
       <Filter>Header Files\Login Screens</Filter>
     </ClInclude>
     <ClInclude Include="clsTransferScreen.h">
+      <Filter>Header Files\Transactions Menu Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="clsTransferLogScreen.h">
       <Filter>Header Files\Transactions Menu Screens</Filter>
     </ClInclude>
   </ItemGroup>

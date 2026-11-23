@@ -141,6 +141,46 @@ void clsBankClient::_MarkToDelete(std::vector <clsBankClient>& vClients, bool& i
 		}
 	}
 }
+//Method (10):
+std::string clsBankClient::_PerpareTransferLogDataLine(double TransferAmount, clsBankClient& DestinationClient, const std::string& UserName)
+{
+	std::string TransferLogDataLine;
+
+	TransferLogDataLine = clsDate::SystemDateString() + ::delimiter;
+	TransferLogDataLine += this->AccountNumber() + ::delimiter;
+	TransferLogDataLine += DestinationClient.AccountNumber() + ::delimiter;
+	TransferLogDataLine += std::to_string(TransferAmount) + ::delimiter;
+	TransferLogDataLine += std::to_string(this->Balance) + ::delimiter;
+	TransferLogDataLine += std::to_string(DestinationClient.Balance) + delimiter;
+	TransferLogDataLine += UserName;
+	return TransferLogDataLine;
+}
+//Method (11):
+void clsBankClient::_RegisterTransferLog(double TransferAmount, clsBankClient& DestinationClient, const std::string& UserName)
+{
+	std::fstream file(::TransferLogFile, std::ios::out | std::ios::app);
+	if (file.is_open())
+	{
+		file << _PerpareTransferLogDataLine(TransferAmount, DestinationClient, UserName) << std::endl;
+		file.close();
+	}
+}
+//Method (12):
+clsBankClient::stTransferLogRecord clsBankClient::_ConvertTransferLogLineDataToRecord(std::string& line)
+{
+	std::vector <std::string> vTranseferLogRecords = clsString::split(line, ::delimiter);
+	stTransferLogRecord TransferRecord;
+
+	//Convert Data Line Record to structure.
+	TransferRecord.DateAndTime = vTranseferLogRecords[0];
+	TransferRecord.SourecAccNumber = vTranseferLogRecords[1];
+	TransferRecord.DestinationAccNumber = vTranseferLogRecords[2];
+	TransferRecord.TransferAmount = std::stod(vTranseferLogRecords[3]);
+	TransferRecord.SourecBalance = std::stod(vTranseferLogRecords[4]);
+	TransferRecord.DestinationBalance = std::stod(vTranseferLogRecords[5]);
+	TransferRecord.UserName = vTranseferLogRecords[6];
+	return TransferRecord;
+}
 
 
 
@@ -261,7 +301,7 @@ std::vector <clsBankClient> clsBankClient::ClientsList(const std::string& FileNa
 {
 	return _LoadClientsDateFromFile(FileName, delimiter);
 }
-//Method (11):
+//Method (11):	
 double clsBankClient::TotalBalance(const std::string& FileName, const std::string& delimiter)
 {
 	std::vector <clsBankClient> vClients = clsBankClient::ClientsList(FileName, delimiter);
@@ -285,7 +325,7 @@ bool clsBankClient::Withdraw(double Amount, const std::string& FileName, const s
 	return Save(AccountNumber(), FileName, delimiter) == enSaveResult::svSucceeded;
 }
 //Method (14):
-bool clsBankClient::Trnasfer(double TransferAmount, clsBankClient& DestinationClient, const std::string& FileName, const std::string& delimiter)
+bool clsBankClient::Trnasfer(double TransferAmount, clsBankClient& DestinationClient, const std::string& FileName, const std::string& delimiter,const std::string& UserName)
 {
 	if (AccountNumber() == DestinationClient.AccountNumber())
 		return false;
@@ -296,7 +336,10 @@ bool clsBankClient::Trnasfer(double TransferAmount, clsBankClient& DestinationCl
 	if (Withdraw(TransferAmount, FileName, delimiter))
 	{
 		if (DestinationClient.Deposit(TransferAmount, FileName, delimiter))
+		{
+			_RegisterTransferLog(TransferAmount, DestinationClient, UserName);
 			return true;
+		}
 		else
 		{
 			//This Will happen if the Deposit function returnd false.
@@ -306,4 +349,19 @@ bool clsBankClient::Trnasfer(double TransferAmount, clsBankClient& DestinationCl
 	}
 	else
 		return false;
+}
+//Method (15):
+std::vector <clsBankClient::stTransferLogRecord> clsBankClient::TransferLogList()
+{
+	std::vector <stTransferLogRecord> vTransferRecords;
+	std::fstream file(::TransferLogFile, std::ios::in);
+	if (file.is_open())
+	{
+		std::string line;
+		while (std::getline(file, line))
+			vTransferRecords.push_back(_ConvertTransferLogLineDataToRecord(line));
+
+		file.close();
+	}
+	return vTransferRecords;
 }

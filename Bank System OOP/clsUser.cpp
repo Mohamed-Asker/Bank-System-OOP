@@ -303,11 +303,10 @@ bool clsUser::HasPermission(short RequiredPermission)
 //Method(10):
 void clsUser::RegisterLogin(const std::string& LoginFile, const std::string& delimiter)
 {
-	std::fstream file(LoginFile, std::ios::out | std::ios::app);
 	_AddDataLineToFile(LoginFile, _PrepareLoginRecord(delimiter));
 }
 //Method(11):
-clsUser::stLoginRegisterRecord clsUser::_ConvertLoginRegisterLineToRecord(std::string& line, const std::string& delimiter)
+clsUser::stLoginRegisterRecord clsUser::ConvertLoginRegisterLineToRecord(std::string& line, const std::string& delimiter)
 {
 	std::vector <std::string> vLoginRegisterDataLine = clsString::split(line, delimiter);
 
@@ -328,7 +327,7 @@ std::vector <clsUser::stLoginRegisterRecord> clsUser::LoginRegisterList(const st
 	{
 		std::string line;
 		while (std::getline(file, line))
-			vLoginRegisterRecord.push_back(_ConvertLoginRegisterLineToRecord(line, delimiter));
+			vLoginRegisterRecord.push_back(ConvertLoginRegisterLineToRecord(line, delimiter));
 
 		file.close();
 	}
