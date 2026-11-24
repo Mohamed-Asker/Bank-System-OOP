@@ -73,14 +73,14 @@ clsUser clsUser::_EmptyUserObj()
 clsUser clsUser::_ConvertUserLineDateToUserObj(std::string& line, const std::string& delimiter)
 {
 	std::vector <std::string> vUser = clsString::split(line, delimiter);
-	return clsUser(enMode::_eUpdateMode, vUser[0], vUser[1], std::stoi(vUser[2]), vUser[3], vUser[4], vUser[5], vUser[6]);
+	return clsUser(enMode::_eUpdateMode, vUser[0], clsUtil::DecryptText(vUser[1]), std::stoi(vUser[2]), vUser[3], vUser[4], vUser[5], vUser[6]);
 }
 //Method(3):
 std::string clsUser::_ConvertUserObjDataToLine(clsUser& User, const std::string& delimiter)
 {
 	std::string line;
 	line += User.UserName + delimiter;
-	line += User.Password + delimiter;
+	line += clsUtil::EncryptText(User.Password) + delimiter;
 	line += std::to_string(User.Permissions) + delimiter;
 	line += User.FirstName + delimiter;
 	line += User.LastName + delimiter;
@@ -167,7 +167,7 @@ std::string clsUser::_PrepareLoginRecord(const std::string& delimiter)
 	//Prepare Login Record.
 	LoginRecord = clsDate::SystemDateString() + delimiter;
 	LoginRecord += UserName + delimiter;
-	LoginRecord += Password + delimiter;
+	LoginRecord += clsUtil::EncryptText(Password) + delimiter;
 	LoginRecord += std::to_string(Permissions);
 	return LoginRecord;
 }
@@ -314,7 +314,7 @@ clsUser::stLoginRegisterRecord clsUser::ConvertLoginRegisterLineToRecord(std::st
 	stLoginRegisterRecord LoginRegisterRecord;
 	LoginRegisterRecord.DateAndTime = vLoginRegisterDataLine[0];
 	LoginRegisterRecord.UserName = vLoginRegisterDataLine[1];
-	LoginRegisterRecord.Password = vLoginRegisterDataLine[2];
+	LoginRegisterRecord.Password = clsUtil::DecryptText(vLoginRegisterDataLine[2]);
 	LoginRegisterRecord.Permissions = std::stoi(vLoginRegisterDataLine[3]);
 	return LoginRegisterRecord;
 }
