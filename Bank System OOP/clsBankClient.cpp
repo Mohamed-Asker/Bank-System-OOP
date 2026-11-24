@@ -51,14 +51,14 @@ bool clsBankClient::getMarkForDelet()
 clsBankClient clsBankClient::_ConvertLineDataToClientObject(std::string& line, const std::string& delimiter)
 {
 	std::vector <std::string> vClientData = clsString::split(line, delimiter);
-	return clsBankClient(enMode::UpdateMode, vClientData[0], vClientData[1], std::stod(vClientData[2]), vClientData[3], vClientData[4], vClientData[5], vClientData[6]);
+	return clsBankClient(enMode::UpdateMode, vClientData[0], clsUtil::DecryptText(vClientData[1]), std::stod(vClientData[2]), vClientData[3], vClientData[4], vClientData[5], vClientData[6]);
 }
 //Method (2):
 std::string clsBankClient::_ConvertClientObjectToLine(clsBankClient& client, const std::string& delimiter)
 {
 	std::string line;
 	line += client.AccountNumber() + delimiter;
-	line += client.PinCode + delimiter;
+	line += clsUtil::EncryptText(client.PinCode) + delimiter;
 	line += std::to_string(client.Balance) + delimiter;
 	line += client.FirstName + delimiter;
 	line += client.LastName + delimiter;
