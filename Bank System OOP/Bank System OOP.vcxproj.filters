@@ -49,6 +49,12 @@
     <Filter Include="Source Files\Login Screens">
       <UniqueIdentifier>{115096a4-00cf-4e18-a941-0c6afeed32af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Currencies Screens">
+      <UniqueIdentifier>{65748621-c787-471c-8630-9bb1e6426724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Currencies Screens">
+      <UniqueIdentifier>{9e70748c-b03d-4d46-b89e-3e96351a9f69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -138,6 +144,12 @@
     <ClCompile Include="clsTransferLogScreen.cpp">
       <Filter>Source Files\Transactions Menu Screens</Filter>
     </ClCompile>
+    <ClCompile Include="clsCurrency.cpp">
+      <Filter>Source Files\Main Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="clsCurrencyExchangeMainScreen.cpp">
+      <Filter>Source Files\Currencies Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\String Library\String Library\clsString.h">
@@ -226,6 +238,15 @@
     </ClInclude>
     <ClInclude Include="clsTransferLogScreen.h">
       <Filter>Header Files\Transactions Menu Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceCommunication.h">
+      <Filter>Header Files\Main Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="clsCurrency.h">
+      <Filter>Header Files\Main Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="clsCurrencyExchangeMainScreen.h">
+      <Filter>Header Files\Currencies Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

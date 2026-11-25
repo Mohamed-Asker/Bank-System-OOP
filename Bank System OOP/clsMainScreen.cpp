@@ -51,21 +51,22 @@ void clsMainScreen::_ShowRegisterLoginScreen(const std::string& FileName, const 
 //Method(9);
 void clsMainScreen::_ShowMainMenu()
 {
-	std::cout << "[1] Show Client List";
-	std::cout << "\n[2] Add New Client";
-	std::cout << "\n[3] Delete Client";
-	std::cout << "\n[4] Update Client Info";
-	std::cout << "\n[5] Find Client";
-	std::cout << "\n[6] Transaction Menu";
-	std::cout << "\n[7] Manage Users";
-	std::cout << "\n[8] Register Login";
-	std::cout << "\n[9] Logout";
+	std::cout << "[1] Show Client List.";
+	std::cout << "\n[2] Add New Client.";
+	std::cout << "\n[3] Delete Client.";
+	std::cout << "\n[4] Update Client Info.";
+	std::cout << "\n[5] Find Client.";
+	std::cout << "\n[6] Transaction Menu.";
+	std::cout << "\n[7] Manage Users.";
+	std::cout << "\n[8] Register Login.";
+	std::cout << "\n[9] Currencies Exchange.";
+	std::cout << "\n[10] Logout.";
 	std::cout << "\n------------------------------------------\n";
 }
 //Method(10);
 clsMainScreen::enMainMenuOptions clsMainScreen::_ReadMainMenuOption()
 {
-	return enMainMenuOptions(clsInputValidate::ReadShortNumberBetween("Choose What do you want to do[1 to 9]",1, 9));
+	return enMainMenuOptions(clsInputValidate::ReadShortNumberBetween("Choose What do you want to do[1 to 10]",1, 10));
 }
 //Method(11);
 bool clsMainScreen::_PerformMainMenuOprtion(enMainMenuOptions UserChoose, const std::string& ClientsFileName, const std::string& UsersFileName, const std::string& LoginFile, const std::string& delimiter)
@@ -110,6 +111,10 @@ bool clsMainScreen::_PerformMainMenuOprtion(enMainMenuOptions UserChoose, const 
 		clsUtil::PressAnyKey("Press any key to go back to main menu");
 		return true;
 
+	case enMainMenuOptions::CurrenciesMenu:
+		_ShowCurrenciesExchangeMenu();
+		return true;
+
 	case enMainMenuOptions::Exit:
 		_Logout();
 		return false;
@@ -122,6 +127,11 @@ bool clsMainScreen::_PerformMainMenuOprtion(enMainMenuOptions UserChoose, const 
 void clsMainScreen::_Logout()
 {
 	CurrentUser.ClearUserObj();
+}
+//Method(13);
+void clsMainScreen::_ShowCurrenciesExchangeMenu()
+{
+	clsCurrencyExchangeMainScreen::RunCurrencyExchangeMainScreen();
 }
 
 

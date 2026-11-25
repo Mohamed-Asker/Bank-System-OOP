@@ -10,6 +10,7 @@
 #include "clsTransactionsScreen.h"
 #include "clsManageUserScreen.h"
 #include "clsRegisterLoginScreen.h"
+#include "clsCurrencyExchangeMainScreen.h"
 #include "Global.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
@@ -29,7 +30,8 @@ private:
 		Transactions = 6,
 		ManageUsers = 7,
 		RegisterLogin = 8,
-		Exit = 9
+		CurrenciesMenu = 9,
+		Exit = 10
 	};
 
 
@@ -58,6 +60,8 @@ private:
 	static bool _PerformMainMenuOprtion(enMainMenuOptions UserChoose, const std::string& ClientsFileName, const std::string& LoginFile, const std::string& UsersFileName, const std::string& delimiter);
 	//Method(12);
 	static void _Logout();
+	//Method(13);
+	static void _ShowCurrenciesExchangeMenu();
 
 public:
 

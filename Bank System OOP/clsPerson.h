@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
+#include "InterfaceCommunication.h"
 
 
-class clsPerson
+class clsPerson : public InterfaceCommunication
 {
 private:
 	//Date Members.
@@ -37,7 +38,12 @@ public:
 	//Members Methods.
 	//Method (1):
 	std::string FullName();
-
 	//Method (2):
 	virtual void PrintInfo();
+	//Method (3):
+	void SendEmail(const std::string& Title, const std::string& Body);
+	//Method (4):
+	void SendFax(const std::string& Title, const std::string& Body);
+	//Method (5):
+	void SendSMS(const std::string& Title, const std::string& Body);
 };

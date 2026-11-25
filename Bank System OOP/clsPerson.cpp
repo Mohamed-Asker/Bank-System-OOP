@@ -63,3 +63,21 @@ void clsPerson::PrintInfo()
 	std::cout << "\nPhone     : " << _Phone;
 	std::cout << "\n---------------------------";
 }
+//Method (3):
+void clsPerson::SendEmail(const std::string& Title, const std::string& Body)
+{
+	std::cout << "Title: " << Title;
+	std::cout << "\nBody: " << Body << std::endl;
+}
+//Method (4):
+void clsPerson::SendFax(const std::string& Title, const std::string& Body)
+{
+	std::cout << "Title: " << Title;
+	std::cout << "\nBody: " << Body << std::endl;
+}
+//Method (5):
+void clsPerson::SendSMS(const std::string& Title, const std::string& Body)
+{
+	std::cout << "Title: " << Title;
+	std::cout << "\nBody: " << Body << std::endl;
+}
