@@ -53,13 +53,13 @@ bool clsCurrencyExchangeMainScreen::_PerformCurrenciesMainMenueOptions(enCurrenc
 void clsCurrencyExchangeMainScreen::_ShowListCurrenciesScreen()
 {
 	system("cls");
-	std::cout << "List Currencies Screen Will Be Here\n";
+	clsCurrenciesListScreen::ShowCurrenciesListScreen();
 }
 //Method(5):
 void clsCurrencyExchangeMainScreen::_ShowFindCurrencyScreen()
 {
 	system("cls");
-	std::cout << "Find Currency Screen Will Be Here\n";
+	clsFindCurrencyScreen::ShowFindCurrencyScreen();
 }
 //Method(6):
 void clsCurrencyExchangeMainScreen::_ShowUpdateRateScreen()

@@ -26,7 +26,7 @@ private:
 	//Method(1):
 	static clsCurrency _ConvertCurrencyDataLineToObj(std::string& line);
 	//Method(2):
-	std::vector <clsCurrency> _LoadCurrenciesDataFromFile();
+	static std::vector <clsCurrency> _LoadCurrenciesDataFromFile();
 	//Method(3):
 	std::string _ConvertCurrencyObjToLine();
 	//Method(4):
@@ -57,12 +57,15 @@ public:
 	//Method(1):
 	bool isEmpty();
 	//Method(2):
-	std::vector <clsCurrency>  CurrencyList();
+	static std::vector <clsCurrency>  CurrencyList();
 	//Method(3):
 	static clsCurrency FindByCode(std::string& CurrencyCode);
 	//Method(4):
 	static clsCurrency FindByCountry(std::string& Country);
 	//Method(5):
-	static bool isCurrencyExist(std::string& CurrencyCode, clsCurrency* CurrencyPtr = nullptr);
+	static bool isCurrencyCodeExist(std::string& CurrencyCode, clsCurrency* CurrencyPtr = nullptr);
+	//Method(6):
+	static bool isCountryCurrencyExist(std::string& CountryCurrency, clsCurrency* CurrencyPtr = nullptr);
+	
 };
 

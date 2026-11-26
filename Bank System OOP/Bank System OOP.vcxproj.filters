@@ -55,6 +55,12 @@
     <Filter Include="Header Files\Currencies Screens">
       <UniqueIdentifier>{9e70748c-b03d-4d46-b89e-3e96351a9f69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Currencies Screens\Currency Screens">
+      <UniqueIdentifier>{e82de468-8bd9-438c-9580-5d691fd31a3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Currencies Screens\Currency Screens">
+      <UniqueIdentifier>{83567ca7-b487-41d0-84cf-a32b4ad02762}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -149,6 +155,12 @@
     </ClCompile>
     <ClCompile Include="clsCurrencyExchangeMainScreen.cpp">
       <Filter>Source Files\Currencies Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="clsCurrenciesListScreen.cpp">
+      <Filter>Source Files\Currencies Screens\Currency Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="clsFindCurrencyScreen.cpp">
+      <Filter>Source Files\Currencies Screens\Currency Screens</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +259,12 @@
     </ClInclude>
     <ClInclude Include="clsCurrencyExchangeMainScreen.h">
       <Filter>Header Files\Currencies Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="clsCurrenciesListScreen.h">
+      <Filter>Header Files\Currencies Screens\Currency Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="clsFindCurrencyScreen.h">
+      <Filter>Header Files\Currencies Screens\Currency Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
