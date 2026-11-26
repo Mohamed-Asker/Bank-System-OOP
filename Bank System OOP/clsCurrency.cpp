@@ -35,7 +35,7 @@ float clsCurrency::getRate()
 //Method(1):
 clsCurrency clsCurrency::_ConvertCurrencyDataLineToObj(std::string& line)
 {
-	std::vector <std::string> vCurrencyData;
+	std::vector <std::string> vCurrencyData = clsString::split(line, delimiter);
 	return clsCurrency(enMode::UpdateMode, vCurrencyData[0], vCurrencyData[1], vCurrencyData[2], std::stof(vCurrencyData[3]));
 }
 //Method(2):
@@ -142,7 +142,7 @@ clsCurrency clsCurrency::FindByCountry(std::string& Country)
 		while (std::getline(file, LineData))
 		{
 			currency = _ConvertCurrencyDataLineToObj(LineData);
-			if (currency.Country() == Country)
+			if (clsString::UpperAllLetterInString(currency.Country()) == Country)
 			{
 				file.close();
 				return currency;
@@ -153,13 +153,28 @@ clsCurrency clsCurrency::FindByCountry(std::string& Country)
 	return _EmptyCurrencyObj();
 }
 //Method(5):
-bool clsCurrency::isCurrencyExist(std::string& CurrencyCode, clsCurrency* CurrencyPtr)
+bool clsCurrency::isCurrencyCodeExist(std::string& CurrencyCode, clsCurrency* CurrencyPtr)
 {
 	clsCurrency currency = FindByCode(CurrencyCode);
 	if (!currency.isEmpty())
 	{
 		if (CurrencyPtr != nullptr)
 			*CurrencyPtr = currency;
+
+		return true;
+	}
+	else
+		return false;
+}
+//Method(6):
+bool clsCurrency::isCountryCurrencyExist(std::string& CountryCurrency, clsCurrency* CurrencyPtr)
+{
+	clsCurrency currency = FindByCountry(CountryCurrency);
+	if (!currency.isEmpty())
+	{
+		if (CurrencyPtr != nullptr)
+			*CurrencyPtr = currency;
+
 		return true;
 	}
 	else
