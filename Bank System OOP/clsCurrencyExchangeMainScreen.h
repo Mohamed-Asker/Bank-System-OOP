@@ -3,6 +3,7 @@
 #include "clsScreen.h"
 #include "clsCurrenciesListScreen.h"
 #include "clsFindCurrencyScreen.h"
+#include "clsUpdateCurrency.h"
 #include "../../Input Validate Library/Input Validate Library/clsInputValidate.h"
 #include "../../Utility Library/Utility Library/clsUtil.h"
 

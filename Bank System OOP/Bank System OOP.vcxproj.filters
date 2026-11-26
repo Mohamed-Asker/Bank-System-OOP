@@ -162,6 +162,9 @@
     <ClCompile Include="clsFindCurrencyScreen.cpp">
       <Filter>Source Files\Currencies Screens\Currency Screens</Filter>
     </ClCompile>
+    <ClCompile Include="clsUpdateCurrency.cpp">
+      <Filter>Source Files\Currencies Screens\Currency Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\String Library\String Library\clsString.h">
@@ -264,6 +267,9 @@
       <Filter>Header Files\Currencies Screens\Currency Screens</Filter>
     </ClInclude>
     <ClInclude Include="clsFindCurrencyScreen.h">
+      <Filter>Header Files\Currencies Screens\Currency Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="clsUpdateCurrency.h">
       <Filter>Header Files\Currencies Screens\Currency Screens</Filter>
     </ClInclude>
   </ItemGroup>

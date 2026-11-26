@@ -11,6 +11,7 @@ clsCurrency::clsCurrency(enMode Mode, const std::string& Country, const std::str
 void clsCurrency::UpdateRate(float NewRate)
 {
 	_Rate = NewRate;
+	_UpdateCurrency();
 }
 
 //Getter.

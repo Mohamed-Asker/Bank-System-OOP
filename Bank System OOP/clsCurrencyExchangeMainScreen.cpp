@@ -65,7 +65,7 @@ void clsCurrencyExchangeMainScreen::_ShowFindCurrencyScreen()
 void clsCurrencyExchangeMainScreen::_ShowUpdateRateScreen()
 {
 	system("cls");
-	std::cout << "Update Rate Screen Will Be Here\n";
+	clsUpdateCurrency::ShowUpdateCurrencyScreen();
 }
 //Method(7):
 void clsCurrencyExchangeMainScreen::_ShowCurrencyCalculatorScreen()
